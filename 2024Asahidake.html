@@ -1,0 +1,409 @@
+<!DOCTYPE html> <!-- 文件型態宣告(固定) -->
+<html lang="en">
+
+<!-- head:網頁的額外資訊，不在主畫面內 -->
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- 控制裝置縮放維持在一倍-->
+    <meta charset="utf-8" /> <!-- 網頁編碼是utf-8(萬國碼)-->
+    <!-- 設定網頁的視窗大小和縮放比例 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 固定手機螢幕為直式閱讀 -->
+    <meta name="screen-orientation" content="portrait"> <!-- 強制屏幕方向為直式 -->
+    <meta name="x5-orientation" content="portrait">  <!-- 針對某些手機瀏覽器（如 QQ 瀏覽器）的設定，強制使用直式顯示 -->
+    <meta name="x5-fullscreen" content="true">   <!-- 這些標籤設定允許全螢幕模式運行 -->
+    <meta name="full-screen" content="yes">  <!-- 這些標籤設定允許全螢幕模式運行 -->
+    
+    <!-- 網頁標籤icon & 名稱-->
+    <link rel="icon" type="image/jpg" href="img_2024Hokkaido/iffyslife_logo.jpg">
+    <title> 2024 旭岳 </title>
+    
+    <!-- Boostrap 導入程式 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!-- 連結Google提供的字體-->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Architects Daughter|Klee One" />
+                                                             <!-- 標題   |中文字型 -->
+
+    <!-- 連結自設的CSS樣式表-->
+    <link rel="stylesheet" type="text/css" href="navbar-footer.css" /> <!--導覽列樣式-->
+    <link rel="stylesheet" type="text/css" href="page-title-image.css" />  <!--橫幅圖片&文字樣式-->
+    <link rel="stylesheet" type="text/css" href="map.css" /> <!--地圖樣式-->
+    <link rel="stylesheet" type="text/css" href="main-page.css" />  <!--主內容樣式-->
+
+    <!-- 連結javascript-->
+    <script type="module" src="2024_Asahidakemap.js"></script>
+
+    <!-- 引入 Google Maps JavaScript API -->
+    <script>
+        (g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })({
+            key: "AIzaSyAqHx3BG0l9jpwkeMCPco-nMPuPr1bgkwI",
+            v: "weekly",
+            // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+            // Add other bootstrap parameters as needed, using camel case.
+        });
+    </script>
+
+    <!-- 文章內圖片幻燈片設置 -->
+        <!-- 引入 Slick 的 CSS 文件 -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css"/>
+        
+        <!-- 引入 jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+        <!-- 引入 Slick 的 JavaScript 文件 -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+
+        <!-- 連結javascript-->
+        <script type="module" src="slick.min.js"></script>
+</head>
+
+<!-- body:網頁內文 -->
+
+<body>
+    <!-- 第一區塊：導覽列 -->
+    <div id="navbar"></div>
+    <script>
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            })
+            .catch(error => console.log('Error loading navbar:', error));
+    </script>
+
+    <!-- 第二區塊：網頁上方圖片 + 主標題-->
+    <div class="travel"> 
+        <div class="top-picture">
+            <img src="img_2024Hokkaido/818_0.jpg" alt="Banner" class="banner">
+        </div>
+
+        <div class="page-title-wrapper-over-image">
+            <h1 class="page-title">2024 <span class="chinese">旭岳</span></h1>
+            <h3 class="sub-text">2024/8/18</h3>
+        </div>
+
+    <!-- 第三區塊：主內容-二欄位 -->
+    <div class="container-fluid-main"> <!-- fluid: 水流樣式，for RWD -->
+        <div class="row justify-content-center"> <!-- 水平置中 (col少的份數變成左右空白) -->
+            <!-- 左邊欄位 -->
+            <div class="col-12 col-lg-3 fixed-left"> <!-- col-2(數字) 決定欄寬，total12份 -->
+                <!-- 側邊導覽列-->
+                <div class="page-guiline">
+                    <div class="Rtopic">
+                        <img src="img_2024Hokkaido/travel_logo.jpg" width="50" height="50" class="my-logo" />
+                        <span class="chinese">行程 </span> Travel Itinerary
+                    </div>
+                    <ul class="Trinfo">
+                        <a class="page-link chinese" href="2024Sapporo.html">Day 1-2 札幌</a>
+                        <a class="page-link chinese" href="2024Otaru.html">Day 3 小樽</a>
+                        <a class="page-link chinese" href="2024Asahikawa.html">Day 4 小樽-旭川</a>
+                        <a class="page-link chinese current-page" href="2024Asahidake.html">Day 5 旭岳</a>
+                        <a class="page-link chinese" href="2024Biei.html">Day 6 美瑛-札幌</a>
+                        <a class="page-link chinese" href="2024Shikotsuko.html">Day 7 札幌-伊達</a>
+                        <a class="page-link chinese" href="2024Noboribetsu.html">Day 8 有珠山-登別</a>
+                        <a class="page-link chinese" href="2024Noboribetsu2.html">Day 9 登別-洞爺湖</a>
+                        <a class="page-link chinese" href="2024Toya.html">Day 10 洞爺湖</a>
+                        <a class="page-link chinese" href="2024Toya2.html">Day 11 洞爺湖-函館</a>
+                        <a class="page-link chinese" href="2024Hakodate.html">Day 12-13 函館</a>
+                        <br>
+                        <a class="page-link chinese" href="2024Konan.html">函館 柯南集章</a>
+                        <a class="page-link chinese" href="2024Others.html">旅行二三事</a>
+                        <a class="page-link chinese" href="2024Foods.html">意外的美食</a>
+                    </ul>
+                </div>
+                <!--The div element for the map -->
+                <div class="city_map" id="2024_Asahidakemap"></div>
+            </div>
+            <!-- 右邊主欄位 -->
+            <div class="col-12 col-lg-9 main-content"> <!-- 文字靠左(可自行設定)-->
+                <div class="blog">
+                    <div class="post" id="place1">
+                        <h2 class="post-title">大雪山 旭岳</h2>
+                        <p class="post-date">2024年8月18日</p>
+                        <!-- 主幻燈片輪播 -->
+                        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="img_2024Hokkaido/818/818_11.jpg" class="d-block" loading="lazy" alt="大雪山 旭岳">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img_2024Hokkaido/818/818_12.jpg" class="d-block" loading="lazy" alt="大雪山 旭岳">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img_2024Hokkaido/818/818_13.jpg" class="d-block" loading="lazy" alt="大雪山 旭岳">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img_2024Hokkaido/818/818_14.jpg" class="d-block" loading="lazy" alt="大雪山 旭岳">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img_2024Hokkaido/818/818_15.jpg" class="d-block" loading="lazy" alt="大雪山 旭岳">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img_2024Hokkaido/818/818_16.jpg" class="d-block" loading="lazy" alt="大雪山 旭岳">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img_2024Hokkaido/818/818_17.jpg" class="d-block" loading="lazy" alt="大雪山 旭岳">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img_2024Hokkaido/818/818_18.jpg" class="d-block" loading="lazy" alt="大雪山 旭岳">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img_2024Hokkaido/818/818_19.jpg" class="d-block" loading="lazy" alt="大雪山 旭岳">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img_2024Hokkaido/818/818_20.jpg" class="d-block" loading="lazy" alt="大雪山 旭岳">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img_2024Hokkaido/818/818_21.jpg" class="d-block" loading="lazy" alt="大雪山 旭岳">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img_2024Hokkaido/818/818_22.jpg" class="d-block" loading="lazy" alt="大雪山 旭岳">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img_2024Hokkaido/818/818_23.jpg" class="d-block" loading="lazy" alt="大雪山 旭岳">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img_2024Hokkaido/818/818_24.jpg" class="d-block" loading="lazy" alt="大雪山 旭岳">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img_2024Hokkaido/818/818_25.jpg" class="d-block" loading="lazy" alt="大雪山 旭岳">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img_2024Hokkaido/818/818_26.jpg" class="d-block" loading="lazy" alt="大雪山 旭岳">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img_2024Hokkaido/818/818_27.jpg" class="d-block" loading="lazy" alt="大雪山 旭岳">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+
+                        <!-- 縮略圖導航 -->
+                        <div class="thumbnail-nav mt-3">
+                            <div class="row">
+                                <div class="col-1">
+                                    <img src="img_2024Hokkaido/818/818_11.jpg" class="img-fluid thumbnail" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0" alt="Thumbnail 1">
+                                </div>
+                                <div class="col-1">
+                                    <img src="img_2024Hokkaido/818/818_12.jpg" class="img-fluid thumbnail" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="1" alt="Thumbnail 2">
+                                </div>
+                                <div class="col-1">
+                                    <img src="img_2024Hokkaido/818/818_13.jpg" class="img-fluid thumbnail" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="2" alt="Thumbnail 3">
+                                </div>
+                                <div class="col-1">
+                                    <img src="img_2024Hokkaido/818/818_14.jpg" class="img-fluid thumbnail" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="3" alt="Thumbnail 4">
+                                </div>
+                                <div class="col-1">
+                                    <img src="img_2024Hokkaido/818/818_15.jpg" class="img-fluid thumbnail" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="4" alt="Thumbnail 5">
+                                </div>
+                                <div class="col-1">
+                                    <img src="img_2024Hokkaido/818/818_16.jpg" class="img-fluid thumbnail" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="5" alt="Thumbnail 6">
+                                </div>
+                                <div class="col-1">
+                                    <img src="img_2024Hokkaido/818/818_17.jpg" class="img-fluid thumbnail" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="6" alt="Thumbnail 7">
+                                </div>
+                                <div class="col-1">
+                                    <img src="img_2024Hokkaido/818/818_18.jpg" class="img-fluid thumbnail" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="7" alt="Thumbnail 8">
+                                </div>
+                                <div class="col-1">
+                                    <img src="img_2024Hokkaido/818/818_19.jpg" class="img-fluid thumbnail" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="8" alt="Thumbnail 9">
+                                </div>
+                                <div class="col-1">
+                                    <img src="img_2024Hokkaido/818/818_20.jpg" class="img-fluid thumbnail" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="9" alt="Thumbnail 10">
+                                </div>
+                                <div class="col-1">
+                                    <img src="img_2024Hokkaido/818/818_21.jpg" class="img-fluid thumbnail" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="10" alt="Thumbnail 11">
+                                </div>
+                                <div class="col-1">
+                                    <img src="img_2024Hokkaido/818/818_22.jpg" class="img-fluid thumbnail" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="11" alt="Thumbnail 12">
+                                </div>
+                                <div class="col-1">
+                                    <img src="img_2024Hokkaido/818/818_23.jpg" class="img-fluid thumbnail" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="12" alt="Thumbnail 13">
+                                </div>
+                                <div class="col-1">
+                                    <img src="img_2024Hokkaido/818/818_24.jpg" class="img-fluid thumbnail" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="13" alt="Thumbnail 14">
+                                </div>
+                                <div class="col-1">
+                                    <img src="img_2024Hokkaido/818/818_25.jpg" class="img-fluid thumbnail" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="14" alt="Thumbnail 15">
+                                </div>
+                                <div class="col-1">
+                                    <img src="img_2024Hokkaido/818/818_26.jpg" class="img-fluid thumbnail" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="15" alt="Thumbnail 16">
+                                </div>
+                                <div class="col-1">
+                                    <img src="img_2024Hokkaido/818/818_27.jpg" class="img-fluid thumbnail" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="16" alt="Thumbnail 17">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <p class="post-content">
+                            這次行程的一個重點就是去年錯過的<a href="https://asahidake.hokkaido.jp/tw/" target="_blank">旭岳</a>。
+                            雖然我們沒有要登頂，只是要走到姿見池繞一圈而已，還是認真的從台灣帶了登山杖(某次要去合歡山前買的，但後來行程取消之後，根本很少用)，
+                            還幫小孩帶了稍厚的外套。結果其實山頂纜車站就有提供公用的登山杖，雖然都是大大小小石頭路，但沒有登山杖也還可以走，
+                            當然有的話會好走一些。山上溫度大概20度，剛出纜車站時會覺得有點冷，但是走一走之後加上太陽很賞臉，就會熱起來了，
+                            不過山上風比較大，太陽被雲遮住時還是會有寒意。我要說的是：帶薄的防風外套即可。
+                        </p>
+                        <p class="post-content">
+                            我們算是幸運的吧！這天天氣很好，中午吃到美味的咖哩。大概2點左右抵達纜車站，天氣一點點陰陰的，
+                            但是山上能見度看起來不錯，雖然有雲，但還是可以清楚看到旭岳山峰，便買票上山啦！旺季來回票價：中學生以上￥3200，學生￥1600。
+                            允寶因為九月才上小學，所以免費(日本對學齡前小孩很友善耶)。天氣還不錯，視野很好，山上空氣超清新。從纜車站出發，
+                            沿著步道到姿見池繞一圈回來，邊走邊拍照(央央一直在幫他在小樽扭到的蛇拍各種戶外沙龍照)，順便要哄騙走五公尺就腳酸走不動的允寶繼續走，
+                            大概一個多小時。我們走回來之後在纜車站外用腳架自拍時，遇到好心的站務伯伯，主動過來幫我們拍照，還指揮我們做動作，超級可愛。
+                            沒有再多停留，就搭纜車下山了，去本次行程花費最高，最期待的溫泉旅館<a href="https://www.yukoman.jp/" target="_blank">湯元湧駒莊</a>
+                            check in啦！
+                        </p>
+                    </div>
+
+                    <div class="post" id="place2">
+                        <h2 class="post-title">旭川 農珈屋本店 (咖哩)</h2>
+                        <p class="post-date">2024年8月18日</p>
+                        <div class="float-left slider">
+                            <div><img src="img_2024Hokkaido/foods/food_1.jpg" alt="Photo 農珈屋1"></div>
+                            <div><img src="img_2024Hokkaido/foods/food_2.jpg" alt="Photo 農珈屋2"></div>
+                            <div><img src="img_2024Hokkaido/foods/food_3.jpg" alt="Photo 農珈屋3"></div>
+                            <div><img src="img_2024Hokkaido/foods/food_4.jpg" alt="Photo 農珈屋4"></div>
+                            <div><img src="img_2024Hokkaido/foods/food_5.jpg" alt="Photo 農珈屋5"></div>
+                            <div><img src="img_2024Hokkaido/foods/food_6.jpg" alt="Photo 農珈屋6"></div>
+                            <div><img src="img_2024Hokkaido/foods/food_7.jpg" alt="Photo 農珈屋7"></div>
+                            <div><img src="img_2024Hokkaido/foods/food_8.jpg" alt="Photo 農珈屋8"></div>
+                        </div>
+                        <p class="post-content">
+                            <a href="https://maps.app.goo.gl/GSTRFLcDBQpv8YDJA" target="_blank">農珈屋</a>
+                            是我們上旭岳之前的午餐，早上check out 後直奔
+                            <a href="https://maps.app.goo.gl/7q3J7arXV6iMGpdq9" target="_blank">uniqlo</a>
+                            採購，雖然旁邊就是旭川有名的拉麵村，但是當時也不知道為什麼沒有逛一下，買完就上車出發去這個我亂找的店。
+                            原本以為是個人經營的附餐小咖啡館，到了之後發現ㄟ~~ 不是耶，而且還很熱門！外觀看起來很普通，但裡面別有洞天，空間很寬敞，而且布置得很舒適，後方就是一大片稻田，
+                            也可以選擇在戶外用餐。11點多到的時候已經客滿了，需要候位，我們沒有電話，店員很貼心的說可以留車號，然後在車子附近等待即可，大約等了10~15分鐘之後就有位置可以入坐啦。
+                        </p>
+                        <p class="post-content">
+                            這家店的招牌是各種咖哩！有自選3種咖哩，或是選搭配好的。我是選看起來超美的兩種蝦咖哩(紅、黃咖哩醬，￥1550)，阿光是自選三種咖哩(豬肉、雞肉和夏季野菜，￥1550)、一份兒童咖哩(￥750)，因為怕他們不吃，
+                            所以只點了一份，結果有點不夠吃。咖哩飯上來時真的超驚豔的！！配色超美，很多美味的蔬菜！我的蝦咖哩好好吃，而且是我喜歡的小辣，阿光也覺得他的咖哩好吃，尤其看央央跟允寶也清盤就知道，兩個挑食鬼都吃光光，
+                            應該一人點一份或是飯點大碗的才對，失策！這次旅行比起之前有吃到多比較蔬菜，之前在札幌吃的湯咖哩裡也是很多美味蔬菜。
+                            另外，冰淇淋的部分看起來也很好吃，所以也點了一個原味冰淇淋(￥500)，和一個允寶會愛的巧克力聖代，(￥650)結果允寶沒有很愛，竟然吃一吃就不吃了，
+                            好吧，這個巧克力我吃起來覺得超甜！但允寶怎麼會不愛呢？
+                        </p>
+                        <!-- 插入一個清除浮動的元素 -->
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="post" id="hotel">
+                        <h2 class="post-title">旭岳溫泉 湯元 湧駒莊</h2>
+                        <p class="post-date">2024年8月18日</p>
+                        <div class="photo-storeinfo">
+                            <div class="slider-info">
+                                <div><img src="img_2024Hokkaido/818/818_31.jpg" alt="Photo 湧駒莊_1"></div>
+                                <div><img src="img_2024Hokkaido/818/818_32.jpg" alt="Photo 湧駒莊_2"></div>
+                                <div><img src="img_2024Hokkaido/818/818_33.jpg" alt="Photo 湧駒莊_3"></div>
+                                <div><img src="img_2024Hokkaido/818/818_34.jpg" alt="Photo 湧駒莊_4"></div>
+                                <div><img src="img_2024Hokkaido/818/818_35.jpg" alt="Photo 湧駒莊_5"></div>
+                                <div><img src="img_2024Hokkaido/818/818_36.jpg" alt="Photo 湧駒莊_6"></div>
+                                <div><img src="img_2024Hokkaido/818/818_37.jpg" alt="Photo 湧駒莊_7"></div>
+                            </div>
+                            <br>
+                            <div class="post-storeinfo">
+                                <ul class="info">
+                                    <li>住宿日期：2024/8/18</li>
+                                    <li>訂房方式：Jalan</li>
+                                    <li>房型：一泊二食 (27m<sup>2</sup>)</li>
+                                    <li>專案：【黒毛和牛サーロイン】×【想作会席☆遊食膳】料理長オススメ☆贅を尽くしたワンランク上の極旨グルメ会席</li>
+                                    <li>房價：￥78800-￥8100 (jalan點數)= ￥70700</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="post-content">
+                            出發前擔心天氣問題，因此住宿的部分，就選擇了離旭岳纜車站非常近的溫泉旅館，最後是在Jalan上訂了這家
+                            <a href="https://www.yukoman.jp/" target="_blank">旭岳溫泉 湯元 湧駒莊</a>，這樣一來，如果第一天山上天氣不好，霧茫茫的話，還有第二天作為緩衝。
+                            這家溫泉旅館的特色是，旅館裡有天然湧泉，水質超好，稱為湧駒水。
+                            其礦物質均衡良好，水溫常年維持在7度左右，水量豐富。隨著積雪的融化，每年累積數十公尺的積雪深入地下，
+                            經過數百年的時間，溢出到地面，成為豐富的泉水來源。房內直接提供一大瓶冰得超涼的湧駒水。這裡的溫泉泉質由硫酸鹽泉/苦泉「鎂」、
+                            石膏泉「鈣」、碳酸氫鹽泉「鹼金屬」、銅綠泉「鐵」組成。日本最著名的溫泉之一。旅館內有五種不同泉質的溫泉，且都是直接由溫泉直接注入湯池的，
+                            湯池位置的也是以能保持溫泉的"新鮮"來設計，不加氯或是一般的水，且確保泉水湧出後，能盡快的流入浴池，堅持提供最天然的溫泉給旅客(資訊來自官網)。
+                            這家旅館是這次住宿裡最傳統的溫泉旅館，本館溫泉很古老，露天溫泉底部石頭還會有青苔(央央很愛，覺得滑滑的很好玩)，
+                            戶外泉水溫度較低，無法待太久。我比較喜歡別館的溫泉，雖然比較小一點，但感覺水質比較清澈乾淨，溫度也很讚！
+                        </p>
+                        <!-- 插入一個清除浮動的元素 -->
+                        <div class="clearfix"></div>
+                        <div class="float-left slider">
+                            <div><img src="img_2024Hokkaido/818/818_41.jpg" alt="Photo 湧駒莊晚餐_1"></div>
+                            <div><img src="img_2024Hokkaido/818/818_42.jpg" alt="Photo 湧駒莊晚餐_2"></div>
+                            <div><img src="img_2024Hokkaido/818/818_43.jpg" alt="Photo 湧駒莊晚餐_3"></div>
+                            <div><img src="img_2024Hokkaido/818/818_44.jpg" alt="Photo 湧駒莊晚餐_4"></div>
+                            <div><img src="img_2024Hokkaido/818/818_45.jpg" alt="Photo 湧駒莊晚餐_5"></div>
+                            <div><img src="img_2024Hokkaido/818/818_46.jpg" alt="Photo 湧駒莊晚餐_6"></div>
+                            <div><img src="img_2024Hokkaido/818/818_47.jpg" alt="Photo 湧駒莊晚餐_7"></div>
+                            <div><img src="img_2024Hokkaido/818/818_48.jpg" alt="Photo 湧駒莊晚餐_8"></div>
+                            <div><img src="img_2024Hokkaido/818/818_49.jpg" alt="Photo 湧駒莊晚餐_9"></div>
+                            <div><img src="img_2024Hokkaido/818/818_50.jpg" alt="Photo 湧駒莊晚餐_10"></div>
+                        </div>
+                        <p class="post-content">
+                            晚餐是日式套餐，按著菜單上的順序一道一道上菜。只是順序十分神奇，一開始就擺好了生魚片和半顆哈密瓜，
+                            允寶則是有一份自己的兒童套餐，用很特別的食器裝來，我一開始還以為是裝碗筷的盒子，打開才發現是允寶的晚餐。
+                            鹽焗蝦夷鮑非常好吃、番茄白酒凍也很清爽好吃耶(料理都用他們自豪的天然湧泉水製作)！
+                            平常在台灣我沒有到很愛番茄，但是北海道的番茄都好好吃，後來在美瑛選果買了一盒綜合番茄，也每種都好甜好好吃！
+                            其他飯店沙拉裡的番茄也都好吃😋。
+                            我訂房時特別選擇了看起來是飯店很自豪推薦的和牛涮涮鍋套餐！前面吃了好幾道之後，已經半飽了，和牛涮涮鍋終於出現，
+                            牛肉看起來很厲害，吃起來也不錯，就是肉少了一點，最後用麵條把我們的胃填滿。餐後甜點有白咖啡布丁，允寶的甜點是冰淇淋。
+                            早餐是一人一份日式鮭魚定食，加豆腐鍋，因為水質非常優良，所以製作出的豆腐也非常美味。飲料有果汁和牛奶等自取。(晚餐的飲料是要另外加點的)
+                            本館溫泉入口旁有一間茶屋，提供熱咖啡和茶，用完早餐後我們又過來喝了咖啡，咖啡機可以做拿鐵，但是有點苦，不過天氣很好，外面風景很美，有很悠閒的感覺。
+                        </p>
+                        <!-- 插入一個清除浮動的元素 -->
+                        <div class="clearfix"></div>
+                        <div class="float-left slider">
+                            <div><img src="img_2024Hokkaido/818/818_51.jpg" alt="Photo 湧駒莊早餐_1"></div>
+                            <div><img src="img_2024Hokkaido/818/818_52.jpg" alt="Photo 湧駒莊早餐_2"></div>
+                            <div><img src="img_2024Hokkaido/818/818_53.jpg" alt="Photo 湧駒莊早餐_3"></div>
+                            <div><img src="img_2024Hokkaido/818/818_54.jpg" alt="Photo 湧駒莊房間_1"></div>
+                            <div><img src="img_2024Hokkaido/818/818_55.jpg" alt="Photo 湧駒莊房間_2"></div>
+                            <div><img src="img_2024Hokkaido/818/818_56.jpg" alt="Photo 湧駒莊房間_3"></div>
+                            <div><img src="img_2024Hokkaido/818/818_57.jpg" alt="Photo 湧駒莊房間_4"></div>
+                            <div><img src="img_2024Hokkaido/818/818_58.jpg" alt="Photo 湧駒莊房間_5"></div>
+                        </div>
+                        <p class="post-content">
+                            房間鋪了四張日式床鋪後，床尾還有一大塊空間放小和式桌、行李以及一個小陽台，衛浴是在靠房間入口的地方。
+                            窗外風景很美，綠意盎然。房間裡提供的咖啡不是手沖，而是咖啡豆，還有放一個簡易的手磨咖啡豆機，非常講究，不過我們後來沒有喝。
+                            還有這家飯店雖然有提供WiFi，但是感覺只能看文字訊息，央央無法玩手機，一直抱怨。(就是要你好好享受溫泉旅館嘛)
+                        </p>
+                        <!-- 插入一個清除浮動的元素 -->
+                        <div class="clearfix"></div>
+                    </div>
+                    <!-- Previous Day and Next Day Buttons -->
+                    <div class="container text-center my-5">
+                        <div class="row">
+                            <div class="col">
+                                <a href="2024Asahikawa.html" class="btn custom-btn">Previous Day</a>
+                            </div>
+                            <div class="col">
+                                <a href="2024Biei.html" class="btn custom-btn">Next Day</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 最下層：底部 footer -->
+    <footer>
+        <div class="container" style="max-width: 85%;">
+            <div class="row">
+                <div class="col-12 my-auto copyright">
+                    <p> Copyright © 2024 Iffy's Life </p>
+                    <p> iffyslife@gmail.com </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

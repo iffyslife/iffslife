@@ -1,0 +1,468 @@
+<!DOCTYPE html> <!-- 文件型態宣告(固定) -->
+<html lang="en">
+
+<!-- head:網頁的額外資訊，不在主畫面內 -->
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- 控制裝置縮放維持在一倍-->
+    <meta charset="utf-8" /> <!-- 網頁編碼是utf-8(萬國碼)-->
+    
+    <!-- 設定網頁的視窗大小和縮放比例 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 固定手機螢幕為直式閱讀 -->
+    <meta name="screen-orientation" content="portrait"> <!-- 強制屏幕方向為直式 -->
+    <meta name="x5-orientation" content="portrait">  <!-- 針對某些手機瀏覽器（如 QQ 瀏覽器）的設定，強制使用直式顯示 -->
+    <meta name="x5-fullscreen" content="true">   <!-- 這些標籤設定允許全螢幕模式運行 -->
+    <meta name="full-screen" content="yes">  <!-- 這些標籤設定允許全螢幕模式運行 -->
+
+    <!-- 網頁標籤icon & 名稱-->
+    <link rel="icon" type="image/jpg" href="img_2024Hokkaido/iffyslife_logo.jpg">
+    <title> 2024 函館 </title>
+    
+    <!-- Boostrap 導入程式 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!-- 連結Google提供的字體-->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Architects Daughter|Klee One" />
+                                                             <!-- 標題   |中文字型 -->
+
+    <!-- 連結自設的CSS樣式表-->
+    <link rel="stylesheet" type="text/css" href="navbar-footer.css" /> <!--導覽列樣式-->
+    <link rel="stylesheet" type="text/css" href="page-title-image.css" /> <!--橫幅圖片&文字樣式-->
+    <link rel="stylesheet" type="text/css" href="map.css" /> <!--地圖樣式-->
+    <link rel="stylesheet" type="text/css" href="main-page.css" /> <!--主內容樣式-->
+
+    <!-- 連結javascript-->
+    <script type="module" src="2024_Hakodatemap.js"></script>
+
+    <!-- 引入 Google Maps JavaScript API -->
+    <script>
+        (g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })({
+            key: "AIzaSyAqHx3BG0l9jpwkeMCPco-nMPuPr1bgkwI",
+            v: "weekly",
+            // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+            // Add other bootstrap parameters as needed, using camel case.
+        });
+    </script>
+
+    <!-- 文章內圖片幻燈片設置 -->
+        <!-- 引入 Slick 的 CSS 文件 -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css"/>
+        
+        <!-- 引入 jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+        <!-- 引入 Slick 的 JavaScript 文件 -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+
+        <!-- 連結javascript-->
+        <script type="module" src="slick.min.js"></script>
+</head>
+
+<!-- body:網頁內文 -->
+
+<body>
+     <!-- 第一區塊：導覽列 -->
+     <div id="navbar"></div>
+
+     <script>
+         fetch('nav.html')
+             .then(response => response.text())
+             .then(data => {
+                 document.getElementById('navbar').innerHTML = data;
+             })
+             .catch(error => console.log('Error loading navbar:', error));
+     </script>
+
+    <!-- 第二區塊：網頁上方圖片 + 主標題-->
+    <div class="travel"> 
+        <div class="top-picture">
+            <img src="img_2024Hokkaido/825_1.jpg" alt="Banner" class="banner">
+        </div>
+
+        <div class="page-title-wrapper-over-image">
+            <h1 class="page-title">2024 <span class="chinese">函館 Hakodate</span></h1>
+            <h3 class="sub-text">2024/8/25、26</h3>
+        </div>
+
+    <!-- 第三區塊：主內容-二欄位 -->
+    <div class="container-fluid-main"> <!-- fluid: 水流樣式，for RWD -->
+        <div class="row justify-content-center"> <!-- 水平置中 (col少的份數變成左右空白) -->
+            <!-- 左邊欄位 -->
+            <div class="col-12 col-lg-3 fixed-left"> <!-- col-2(數字) 決定欄寬，total12份 -->
+                <!-- 側邊導覽列-->
+                <div class="page-guiline">
+                    <div class="Rtopic">
+                        <img src="img_2024Hokkaido/travel_logo.jpg" width="50" height="50" class="my-logo" />
+                        <span class="chinese">行程 </span> Travel Itinerary
+                    </div>
+                    <ul class="Trinfo">
+                        <a class="page-link chinese" href="2024Sapporo.html">Day 1-2 札幌</a>
+                        <a class="page-link chinese" href="2024Otaru.html">Day 3 小樽</a>
+                        <a class="page-link chinese" href="2024Asahikawa.html">Day 4 小樽-旭川</a>
+                        <a class="page-link chinese" href="2024Asahidake.html">Day 5 旭岳</a>
+                        <a class="page-link chinese" href="2024Biei.html">Day 6 美瑛-札幌</a>
+                        <a class="page-link chinese" href="2024Shikotsuko.html">Day 7 札幌-伊達</a>
+                        <a class="page-link chinese" href="2024Noboribetsu.html">Day 8 有珠山 - 登別</a>
+                        <a class="page-link chinese" href="2024Noboribetsu2.html">Day 9 登別 - 洞爺湖</a>
+                        <a class="page-link chinese" href="2024Toya.html">Day 10 洞爺湖</a>
+                        <a class="page-link chinese" href="2024Toya2.html">Day 11 洞爺湖-函館</a>
+                        <a class="page-link chinese current-page" href="2024Hakodate.html">Day 12-13 函館</a>
+                        <br>
+                        <a class="page-link chinese" href="2024Konan.html">函館 柯南集章</a>
+                        <a class="page-link chinese" href="2024Others.html">旅行二三事</a>
+                        <a class="page-link chinese" href="2024Foods.html">意外的美食</a>
+                    </ul>
+                </div>
+                <!--The div element for the map -->
+                <div class="city_map" id="2024_Hakodatemap"></div>
+            </div>
+            <!-- 右邊主欄位 -->
+            <div class="col-12 col-lg-9 main-content"> <!-- 文字靠左(可自行設定)-->
+                <div class="blog" >
+                    <div class="post" id="hotel">
+                        <h2 class="post-title">函館住宿 湯の川温泉 海と灯</h2>
+                        <p class="post-date">2024年8月25日</p>
+                        <div class="photo-storeinfo">
+                            <div class="slider-info">
+                                <div><img src="img_2024Hokkaido/825/825_01.jpg" alt="Photo 海之燈_1"></div>
+                                <div><img src="img_2024Hokkaido/825/825_02.jpg" alt="Photo 海之燈_2"></div>
+                                <div><img src="img_2024Hokkaido/825/825_03.jpg" alt="Photo 海之燈_3"></div>
+                                <div><img src="img_2024Hokkaido/825/825_04.jpg" alt="Photo 海之燈_4"></div>
+                                <div><img src="img_2024Hokkaido/825/825_05.jpg" alt="Photo 海之燈_5"></div>
+                                <div><img src="img_2024Hokkaido/825/825_06.jpg" alt="Photo 海之燈_6"></div>
+                                <div><img src="img_2024Hokkaido/825/825_07.jpg" alt="Photo 海之燈_7"></div>
+                                <div><img src="img_2024Hokkaido/825/825_08.jpg" alt="Photo 海之燈_8"></div>
+                                <div><img src="img_2024Hokkaido/825/825_09.jpg" alt="Photo 海之燈_9"></div>
+                                <div><img src="img_2024Hokkaido/825/825_10.jpg" alt="Photo 海之燈_9"></div>
+                            </div>
+                            <br>
+                            <div class="post-storeinfo">
+                                <ul class="info">
+                                    <li>住宿日期：2024/8/25</li>
+                                    <li>訂房方式：官網</li>
+                                    <li>房型：家庭房 (36m<sup>2</sup>)</li>
+                                    <li>房價：￥41696</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="post-content">
+                            行程最後一個住宿，訂了非常期待的 <a href="https://hewitt-resort.com/hakodate-yunokawa/" target="_blank">函館海之燈溫泉飯店</a>。最期待的就是他的自助晚餐和早餐，
+                            有松葉蟹腳、大扇貝和各式美味生魚片、鮭魚卵，可以自製超豐盛海鮮丼。下午三點多逛完五稜郭後便往飯店前進啦！check in時還送了冰淇淋的小點心和給小朋友扭蛋的硬幣，大廳櫃檯旁邊有小巧的扭蛋機，
+                            裡面是可愛的小玩具。電梯旁邊還有多種迎賓飲料可以自行取用，房間還蠻大的，一進門右邊是衣櫃和洗手台，衛浴在左邊，配置有點奇怪，但也還能接受。
+                            進去有四張床，其實我們2大2小可以不用加床，睡那兩張雙人床就足夠，但是飯店還是幫我們加了兩張單人床，可以一人睡一張床，超讚的！
+                            房間裡的點心是我很喜歡的醬油糰子！窗外就是大海和熱帶植物園，冬天可以看猴子泡溫泉。 稍事休息之後，我們就兵分二路，阿光先載我回到市區的無印良品，我要去大採購，
+                            然後他們三個先去泡湯，等晚餐時間再會合。這次已經不能像在札幌一樣，在房間混到吃晚餐，因為已經沒有多少採購時間了，要好好把握才行。因此我就一個人去逛無印良品，
+                            雖然很想坐下來喝個咖啡、吃甜點，但是想到晚上飯店的自助晚餐，要留下肚子的空間才行；買好無印之後原本想看看附近有沒有什麼藥妝店，沒想到竟然沒有，
+                            只好去對面的丸井今井百貨幫央央跟允寶蓋柯南印章，然後便搭電車回飯店啦！特意搭到最後一站"湯川站"，這裡也是柯南電影裡的其中一個場景，但是這裡沒有印章可以蓋，不過車站對面是一家超大藥妝店，
+                            稍微進去看了一下之後，想說等明天早上再一起開車來採買，我還是趕緊走回飯店，從這裡走回飯店的路超可怕！昏暗的住宅區，完全沒人，路彎來彎去的，大概走了15分鐘，終於抵達飯店。
+                        </p>
+                        <!-- 插入一個清除浮動的元素 -->
+                        <div class="clearfix"></div>
+                        <div class="float-left slider">
+                            <div><img src="img_2024Hokkaido/825/825_R1.jpg" alt="Photo 海之燈 餐廳1"></div>
+                            <div><img src="img_2024Hokkaido/825/825_R2.jpg" alt="Photo 海之燈 晚餐2"></div>
+                            <div><img src="img_2024Hokkaido/825/825_R3.jpg" alt="Photo 海之燈 晚餐3"></div>
+                            <div><img src="img_2024Hokkaido/825/825_R4.jpg" alt="Photo 海之燈 早餐4"></div>
+                            <div><img src="img_2024Hokkaido/825/825_R5.jpg" alt="Photo 海之燈 早餐5"></div>
+                            <div><img src="img_2024Hokkaido/825/825_R6.jpg" alt="Photo 海之燈 早餐6"></div>
+                            <div><img src="img_2024Hokkaido/825/825_R7.jpg" alt="Photo 海之燈 早餐7"></div>
+                        </div>
+                        <p class="post-content">
+                            接下來就是令我最期待的晚餐啦！雖然飯店應該已經有分流，但是用餐的人還是非常多，桌距之間很近，不是很舒適。因為很多人，所以我沒有拍很多餐廳的照片。生魚片真的蠻好吃的，
+                            有一個我們沒預期到的美味食物是"大扇貝"和"烤玉米"，可惜後來玉米就沒了。然後冰淇淋超好吃，有五種口味，我吃了好幾球紅豆口和哈密瓜口味，上面還可以選擇加莓果或是鮮奶油。
+                            蟹腳的部分，雖然有提供工具，但是我實在很不會吃，所以吃了兩隻之後就放棄了，阿光倒是吃蠻多的。允寶只吃某一個組合肉排，九宮格的盤子要我幫他一格放一片。
+                        </p>
+                        <p class="post-content">
+                            吃飽之後回房間休息，整個人發懶，拖到好晚才去泡溫泉，晚上去的話，露天溫泉對外景色就是一片黑暗，什麼都看不到，但因為這兩天是陰天，所以海也沒有到很美，灰藍灰藍的。
+                            只是原本以為很晚去人會比較少(大概10點多才去)，結果好多人呀，溫泉區也不大，後來想想應該是媽媽們都要等孩子睡著才能來好好放鬆的關係。隔天早上7點就去吃早餐啦！餐廳一樣很多人，
+                            早餐很特別的是除了自製海鮮丼飯之外，還可以自製漢堡，麵包跟配料是分開的，可以自選喜歡的來組合！咖啡提供的是函館有名的美鈴咖啡，小朋友的餐點選擇也很多，一進門右手邊有水果優格區，
+                            有各種果乾和堅果，我竟然沒發現，最後要離開才看到，沒吃到好傷心，但也已經飽到吃不下啦！
+                        </p>
+
+                        <!-- 插入一個清除浮動的元素 -->
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="post" id="place1">
+                        <h2 class="post-title">俄羅斯東正教教堂、八幡坂散步</h2>
+                        <p class="post-date">2024年8月25日</p>
+                        <div class="float-left slider">
+                            <div><img src="img_2024Hokkaido/825/825_11.jpg" alt="Photo 俄羅斯東正教教堂1"></div>
+                            <div><img src="img_2024Hokkaido/825/825_12.jpg" alt="Photo 俄羅斯東正教教堂2"></div>
+                            <div><img src="img_2024Hokkaido/825/825_13.jpg" alt="Photo 俄羅斯東正教教堂3"></div>
+                            <div><img src="img_2024Hokkaido/825/825_14.jpg" alt="Photo 八幡坂1"></div>
+                            <div><img src="img_2024Hokkaido/825/825_15.jpg" alt="Photo 八幡坂2"></div>
+                            <div><img src="img_2024Hokkaido/825/825_16.jpg" alt="Photo 八幡坂3"></div>
+                            <div><img src="img_2024Hokkaido/825/825_17.jpg" alt="Photo 八幡坂4"></div>
+                        </div>
+                        <p class="post-content">
+                            這次真的很巧，因為星宇航空開了函館線，所以我們選擇了札幌進、函館出，機票比函館進、札幌出便宜一點，也不用走回頭路；柯南今年的劇場版主要場景也是在函館，
+                            然後函館市很聰明的配合柯南電影推出了集章活動，在主要的10個電影場景設置了專屬的柯南印章，蒐集一定數量的印章可以換小禮物和參加抽獎！
+                            所以出發前我們就先在台灣找一天去看了柯南劇場版，來到函館的重要目的就是蒐集柯南印章！第一個印章是昨天的<a href="2024Toya2.html#place3" target="_blank">函館山纜車站</a>，今天第一站先去住宿附近的
+                            <a href="https://hakodate-kokaido.jp/" target="_blank">舊函館公民會所</a>，那邊看起來完全沒有可以停車的地方，所以我們決定把車停在旅館 -
+                            <a href="2024Toya2.html#hotel" target="_blank">元町全景公寓</a>然後散步過去，中間剛好可以順路經過八幡坂。之後再走到金森倉庫(這裡也有一個集章點)，然後再回呂館開車，剛好繞一圈。
+                        </p>
+                        <p class="post-content">
+                            今天早上天氣超級舒適，有陽光、有風不會太熱，非常適合散步的天氣！到八幡坂之前，先經過了超漂亮的<a href="https://www.orthodox-hakodate.jp/" target="_blank">俄羅斯東正教教堂</a>，
+                            便繞進去在外面庭園拍拍照。因為日本幕府在1855年和1858年分別和俄國簽訂了《日俄和平友好條約》和《日俄友好通商條約》，開放函館。1860 年俄國首任領事 -
+                            <a href="https://www.orthodox-hakodate.jp/goshkevich-english" target="_blank">戈什克維奇</a>
+                            建立了這座「函館東正教復活大教堂」，
+                            是俄羅斯第一領事館的附屬教堂。但在1907年（明治40年）函館大火災中被毀，現在的第二堂是在1916年（大正5年）重建的。大教堂內部有高高的拱形天花板和當時從俄羅斯帶來的聖像畫（イコン）和聖障（イコノスタス）。
+                            而聖堂外部則以潔白的灰泥牆、鐘樓和覆蓋著綠銅色屋頂的聖堂為特徵，屋頂上還裝飾著獨特的十字架。 1983年6月，大教堂被指定為國家重要文化財產。詳細的歷史和教會資訊可以參考
+                            <a href="https://www.orthodox-hakodate.jp/history-japanese" target="_blank">官網</a>。教堂附近有一家評價看起來不錯的俄羅斯料理餐廳<a href="https://marutamasquare.wixsite.com/marutama" target="_blank">まるたま小屋</a>，
+                            原本想說可以去那吃午餐，但後來因為時間沒有對上，我們午餐是在函館朝市解決。
+                        </p>
+                        <p class="post-content">
+                            八幡坂位於函館山山麓的元町這一區域，給我的感覺跟我在2015年去的<a href="https://iffyslife.pixnet.net/blog/post/193756182" target="_blank">神戶北野異人館區</a>超級像！多是歐風建築，地形也是在山坡地。
+                            原來是因為1868年的《美日修好通商條約》促使日本進一步開放更多港口，包括神戶、橫濱、新潟、函館、長崎五個港口，來進行國際貿易，因此大量外國人來到日本。
+                            函館的八幡坂和神戶的北野地區的道路多是傾斜的，而且通常面朝大海，符合當時外國人居住地的選址習慣，方便海運貿易。
+                            <a href="https://www.orthodox-hakodate.jp/" target="_blank">俄羅斯東正教教堂</a>的隔壁就是<a href="https://maps.app.goo.gl/XJHoMgzUh8CqPcrN6" target="_blank">函館聖約翰教堂- 英國國教會聖公會</a>、
+                            前方則是<a href="https://maps.app.goo.gl/2HWrbT7erTK4vjh176" target="_blank">元町天主堂 - 羅馬天主教</a>。
+                            英國國教會聖公會後方是<a href="https://maps.app.goo.gl/8JyoJLgXsF63RL3f8" target="_blank">久遠稲荷大明神</a>。小小的一個街區，就有四種不同的信仰。
+                        </p>
+                        <!-- 插入一個清除浮動的元素 -->
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="post" id="place2">
+                        <h2 class="post-title">舊函館公民會所、金森倉庫</h2>
+                        <p class="post-date">2024年8月25日</p>
+                        <div class="float-left slider">
+                            <div><img src="img_2024Hokkaido/825/825_21.jpg" alt="舊函館公民會所1"></div>
+                            <div><img src="img_2024Hokkaido/825/825_22.jpg" alt="舊函館公民會所2"></div>
+                            <div><img src="img_2024Hokkaido/825/825_23.jpg" alt="舊函館公民會所3"></div>
+                            <div><img src="img_2024Hokkaido/825/825_24.jpg" alt="舊函館公民會所4"></div>
+                            <div><img src="img_2024Hokkaido/825/825_25.jpg" alt="舊函館公民會所5"></div>
+                        </div>
+                        <p class="post-content">
+                            經過八幡坂，再往前走一段便可以抵達<a href="https://hakodate-kokaido.jp/" target="_blank">舊函館公民會所</a>，一般情況下我是不會安排這個點的，我們不是走歷史、古蹟路線，
+                            但因這裡是柯南集章點的其中一站，所以就順便來參觀一下啦！參觀需要門票，大人是￥300、小孩￥150。裡面非常華麗呢！二樓陽台可以眺望海港，景色超級美，也擺放了好幾個柯南角色的人行立牌讓大家拍照。
+                            這裡原本是作為居民的聚會場所和商會的辦公室， 1907年被大火燒毀後重建；大正12年（1923年），商業會議所搬遷後，該建築被廣泛用作函館市民的演奏會和展覽會等活動場地。
+                            此外，明治44年（1911年），皇太子殿下（後來的大正天皇）在訪問北海道期間曾在此下榻，大正11年（1922年），攝政皇殿下（後來的昭和天皇）也曾使用過此地，平成元年（1989年），
+                            當時的天皇和皇后兩陛下訪問北海道時也曾下榻於此。有關舊函館公民會所的更多資訊可以上<a href="https://hakodate-kokaido.jp/" target="_blank"> 官網</a>查詢。
+                            竟然還有<a href="https://hakodate-kokaido.jp/2023/11/01/dress/" target="_blank">"衣裳館"</a>，可以付費穿著明治時期華麗的洋服在公會堂內拍照，也有和服的體驗，感覺非常有趣。
+                            禮品販賣部裡也有許多公會堂的原創商品可供購買唷。
+                        </p>
+                        <!-- 插入一個清除浮動的元素 -->
+                        <div class="clearfix"></div>
+                        <div class="float-left slider">
+                            <div><img src="img_2024Hokkaido/825/825_31.jpg" alt="金森倉庫1"></div>
+                            <div><img src="img_2024Hokkaido/825/825_32.jpg" alt="金森倉庫2"></div>
+                            <div><img src="img_2024Hokkaido/825/825_33.jpg" alt="金森倉庫3"></div>
+                            <div><img src="img_2024Hokkaido/825/825_34.jpg" alt="金森倉庫4"></div>
+                            <div><img src="img_2024Hokkaido/825/825_35.jpg" alt="金森倉庫5"></div>
+                            <div><img src="img_2024Hokkaido/825/825_36.jpg" alt="金森倉庫6"></div>
+                            <div><img src="img_2024Hokkaido/825/825_37.jpg" alt="金森倉庫7"></div>
+                            <div><img src="img_2024Hokkaido/825/825_38.jpg" alt="金森倉庫8"></div>
+                            <div><img src="img_2024Hokkaido/825/825_39.jpg" alt="金森倉庫9"></div>
+                            <div><img src="img_2024Hokkaido/825/825_40.jpg" alt="金森倉庫10"></div>
+                            <div><img src="img_2024Hokkaido/825/825_41.jpg" alt="金森倉庫11"></div>
+                            <div><img src="img_2024Hokkaido/825/825_42.jpg" alt="金森倉庫12"></div>
+                        </div>
+                        <p class="post-content">
+                            參觀完公會堂之後就往下走到<a href="https://hakodate-kanemori.com/" target="_blank">金森倉庫</a>逛逛啦！由臨港的六棟儲物倉庫組成，這裡就是非常多各式各樣的賣店，有紀念品、藝術/工藝品、咖啡廳/餐廳、生活用品(ex:香氛)、時尚(衣服鞋子包包等)，慢慢逛的話可以逛很久。
+                            因為路線的關係，我們先在倉庫對面的"北海道第一步地碑"附近拍照，港邊風超級大，頭髮被吹得像瘋婆子，腳架還被吹倒。"北海道第一步地碑"象徵明治政府開拓北海道的起點。在明治時期，政府積極開拓北海道，推動了大規模移民政策，並設立了「開拓使」來促進資源開發和殖民。
+                            函館因其港口地位，成為開拓的進入點，吸引了大批開拓者和商人，是日本進行現代化建設和殖民政策的基地之一。
+                            一進到倉庫第一個看到的是義式冰淇淋攤位，馬上買了三球來吃。之後在有柯南印章的另一棟倉庫發現積木專賣店，可以讓小朋友進去玩樂高(要跟櫃台登記)，所以阿光就帶允寶進去玩，我跟央央去逛旁邊的禮品店，亂買了一些小東西。
+                            最後在一家伴手禮店買了要帶回台灣的伴手禮，跟好吃的魷魚飯。接下來便走回<a href="2024Toya2.html#hotel" target="_blank">元町全景公寓</a>，準備開車去函館朝市釣花枝啦！
+                        </p>
+                        <!-- 插入一個清除浮動的元素 -->
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="post" id="place3">
+                        <h2 class="post-title">函館朝市、五稜郭</h2>
+                        <p class="post-date">2024年8月25日</p>
+                        <div class="float-left slider">
+                            <div><img src="img_2024Hokkaido/825/825_51.jpg" alt="函館朝市1"></div>
+                            <div><img src="img_2024Hokkaido/825/825_53.jpg" alt="函館朝市3"></div>
+                            <div><img src="img_2024Hokkaido/825/825_54.jpg" alt="函館朝市4"></div>
+                            <div><img src="img_2024Hokkaido/825/825_55.jpg" alt="函館朝市5"></div>
+                            <div><img src="img_2024Hokkaido/825/825_56.jpg" alt="函館朝市6"></div>
+                            <div><img src="img_2024Hokkaido/825/825_57.jpg" alt="函館朝市7"></div>
+                            <div><img src="img_2024Hokkaido/825/825_58.jpg" alt="函館朝市8"></div>
+                            <div><img src="img_2024Hokkaido/825/825_59.jpg" alt="函館朝市9"></div>
+                        </div>
+                        <p class="post-content">
+                            雖然已經中午了，但我們還是來<a href="https://asaichi-ekini.com/" target="_blank">函館朝市</a>看看，主要是想要體驗釣花枝，喔，對了，還有蓋柯南印章，在附近停車場停好車後，在朝市裡亂走找蓋印章的地方，中間一直路過一家賣烤魷魚的熟食店，
+                            店員很熱情的一直請我們試吃各種不同的產品，第二次路過時便捧場買了好幾包。繞來繞去，最後終於在這家店的後面找到蓋印章的地方，浪費了好多時間。接下來便是要去找釣花枝的攤位，
+                            一樣又亂繞了一陣，後來發現是在隔壁棟，但是我們找到時已經收攤，殘念。朝市這邊的餐廳，大多營業到下午兩點而已，這時已經一點半了，只好在google map上亂找了朝市內一家評價不錯的店吃午餐，
+                            是在二樓的<a href="https://maps.app.goo.gl/HJFSR1eHhbe2RrHR7" target="_blank">二番館</a>，我只看星星數，沒仔細看評價，
+                            原來評價很高是因為他的500円丼，我們傻傻的點了一般價錢的海鮮丼。我想說在積丹時吃到好吃的海膽<a href="2024Otaru.html#place3" target="_blank">(積丹純的店)</a>，但只有一點點，
+                            這次再來挑戰一下滿滿海膽的雙色丼(海膽和鮭魚卵)，結果完全不行啊啊~~ (一分前一分貨)。後來覺得當時不應該執著要在這邊午餐，應該忍耐一下，去JR函館站蓋完柯南印章後，到
+                            <a href="https://hakoviva.com/" target="_blank">函館駅前横丁</a>吃些別的東西(不要再吃海鮮丼)才對。
+                        </p>
+                        <!-- 插入一個清除浮動的元素 -->
+                        <div class="clearfix"></div>
+                        <div class="float-left slider">
+                            <div><img src="img_2024Hokkaido/825/825_61.jpg" alt="五稜郭1"></div>
+                            <div><img src="img_2024Hokkaido/825/825_62.jpg" alt="五稜郭2"></div>
+                            <div><img src="img_2024Hokkaido/825/825_63.jpg" alt="五稜郭3"></div>
+                            <div><img src="img_2024Hokkaido/825/825_64.jpg" alt="五稜郭4"></div>
+                            <div><img src="img_2024Hokkaido/825/825_65.jpg" alt="五稜郭5"></div>
+                            <div><img src="img_2024Hokkaido/825/825_66.jpg" alt="五稜郭6"></div>
+                            <div><img src="img_2024Hokkaido/825/825_67.jpg" alt="五稜郭7"></div>
+                            <div><img src="img_2024Hokkaido/825/825_68.jpg" alt="五稜郭8"></div>
+                            <div><img src="img_2024Hokkaido/825/825_69.jpg" alt="五稜郭9"></div>
+                            <div><img src="img_2024Hokkaido/825/825_70.jpg" alt="五稜郭10"></div>
+                            <div><img src="img_2024Hokkaido/825/825_71.jpg" alt="五稜郭11"></div>
+                        </div>
+                        <p class="post-content">
+                            下一個景點 <a href="https://www.city.hakodate.hokkaido.jp/docs/2014011601161/" target="_blank">五稜郭</a>，是央央和允寶最期待的函館景點，因為看柯南電影時，他們對這五角星的地標最有印象。
+                            五稜郭也跟1854年函館開港有關，作為江戶幕府抵禦外敵入侵、保護北海道的防禦據點，是日本首座以西式建築風格建造的城郭，位於北海道函館市中心。五稜郭的設計靈感來自法國的城堡建築，
+                            以五角星形狀使其在防禦上擁有更廣的視野，同時減少了防禦死角，是典型的西洋築城方式。現今的五稜郭被改建為五稜郭公園，春天時櫻花盛開，是當地知名的賞櫻勝地。此外，
+                            五稜郭塔提供了俯瞰整個五稜郭星形結構的最佳視角，使遊客得以完整欣賞這座壯觀的歷史建築。五稜郭塔上也完整的展示了函館的歷史，有柯南劇場版裡一開始出現的"土方歲三"雕像。也有介紹"五稜郭"這個形狀的優點，
+                            以及世界各地類似的堡壘，從四稜郭一直到九稜郭都有！五稜郭展望台的參觀門票，大人1000円、中學生750円、小學生500円，允寶還沒小學，所以又省了一筆。上面視野真的非常好，可以看到完整的五星形狀，可惜中午過後，天氣轉陰。
+                            如果是春天櫻花滿開時一定超級美麗。
+                            央央看到下面護城河有很多人在划船，也非常想去，後來去詢問之後，負責人說因為我們沒有經驗，今天風又比較大，很多人超時，所以不建議我們體驗，我覺得這是他們不想租給不會說日文的外國遊客的說法，因為旁邊明明超多空的小船。
+                            不過因為我其實也沒有很想划，想趕緊去飯店休息了，所以剛剛好。在公園逛逛，去箱館奉行所(開港後，為了安全，公務人員辦公的地方移入五稜郭)蓋好柯南印章，便啟程去今日也是本次旅程最後一間住宿
+                            <a href="2024Hakodate.html#hotel">湯の川温泉 海と灯</a> check-in啦！
+                        </p>
+                        <!-- 插入一個清除浮動的元素 -->
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="post"  id="place4">
+                        <h2 class="post-title">湯倉神社、北海道東照宮</h2>
+                        <p class="post-date">2024年8月26日</p>
+                        <div class="float-left slider">
+                            <div><img src="img_2024Hokkaido/826/826_01.jpg" alt="湯倉神社1"></div>
+                            <div><img src="img_2024Hokkaido/826/826_02.jpg" alt="湯倉神社2"></div>
+                            <div><img src="img_2024Hokkaido/826/826_03.jpg" alt="湯倉神社3"></div>
+                            <div><img src="img_2024Hokkaido/826/826_04.jpg" alt="湯倉神社4"></div>
+                            <div><img src="img_2024Hokkaido/826/826_05.jpg" alt="湯倉神社5"></div>
+                            <div><img src="img_2024Hokkaido/826/826_06.jpg" alt="湯倉神社6"></div>
+                            <div><img src="img_2024Hokkaido/826/826_07.jpg" alt="湯倉神社7"></div>
+                            <div><img src="img_2024Hokkaido/826/826_08.jpg" alt="湯倉神社8"></div>
+                        </div>
+                        <p class="post-content">
+                            終於來到本次北海道之旅最後一天。函館飛台灣的飛機是17:45，所以幾乎有一整天的時間可以玩，今天原本預計要去前二天錯過的大沼公園騎腳踏車，
+                            自從在<a href="2024Asahikawa.html#place1" target="_blank">莫埃來沼公園</a>騎了腳踏車之後，央央一直非常的想再騎腳踏車。
+                            在洞爺湖時沒有騎到，最後一個希望就是大沼公園啦！ 但是前一晚在旅館滑google map 看看附近有什麼景點時，
+                            發現了這個<a href="https://www.yukurajinja.or.jp/" target="_blank">湯倉神社</a>，他裡面的花枝御守(蝦夷簽)也太可愛了吧！！馬上決定第一站先來這裡。
+                            官網寫的湯倉神社起源的傳說：大約500年前，大約1453年，有一位木匠患上了重病，幾乎無法康復。有一天，他在夢中得到神靈的指引，
+                            說若到一處山間的湧泉洗浴便可痊癒。木匠依夢中指引找到了這處湧泉，並用泉水清洗身體，病情奇蹟般地改善，最終恢復健康。
+                            為感謝神靈的恩惠，木匠雕刻了藥師如來的雕像，並建造了一座小神社來供奉，便是湯倉神社最早的起源。以上是傳說，真正的歷史就請大家移步
+                            <a href="https://www.yukurajinja.or.jp/history" target="_blank">官網</a>啦！
+                            是個小巧可愛的神社，重點是他的御守種類也太多了吧！而且每個都好可愛！眼花撩亂無從下手。但是御守這個東西呢，帶回台灣後其實就會被小孩亂丟，然後弄不見。
+                            所以只給他們一人500円，選擇自己最想要的御守。允寶很快便決定他要水籤和一款三角開運天然石的詩籤；央央則是選擇困難，猶豫了好久，最後選了跟允寶一樣的三角開運天然石和幸福福氣財源滾滾的詩籤。
+                            總之在這裡待了比預計還久的時間，只好捨棄藥妝店的行程，趕緊往下一個柯南景點 - 北海道東照宮出發。
+                        </p>
+                         <!-- 插入一個清除浮動的元素 -->
+                         <div class="clearfix"></div>
+                        <div class="float-left slider">
+                            <div><img src="img_2024Hokkaido/826/826_11.jpg" alt="北海道東照宮1"></div>
+                            <div><img src="img_2024Hokkaido/826/826_12.jpg" alt="北海道東照宮2"></div>
+                            <div><img src="img_2024Hokkaido/826/826_13.jpg" alt="北海道東照宮3"></div>
+                            <div><img src="img_2024Hokkaido/826/826_14.jpg" alt="北海道東照宮4"></div>
+                            <div><img src="img_2024Hokkaido/826/826_15.jpg" alt="北海道東照宮5"></div>
+                        </div>
+                        <p class="post-content">
+                            <a href="https://www.toshogu.jp/" target="_blank">北海道東照宮</a>在一個好偏僻的地方呀！沒看清楚集章說明，以為這裡也有印章可以蒐集所以才特意過來，
+                            結果這裡只是劇中場景，沒有印章。
+                            但是看到了劇中的"星稜刀"本刀！好像也有其他的柯南迷跟我們一樣搞不清楚狀況，來這裡要蓋印章。我覺得這裡沒有設置印章，應該是不想被遊客打擾。
+                        </p>
+                        <p class="post-content">
+                            東照宮主要是供俸德川家康，最有名的就是栃木縣的<a href="https://www.toshogu.jp/" target="_blank">日光東照宮</a>啦，建於1617年，是德川家康的主祭地。日光東照宮以華麗的雕刻和建築聞名，並被列為世界遺產。
+                            日光東照宮我們今年二月家族旅行時才去過耶！最有名的就是那非禮勿視、非禮勿聽、非禮勿言的三隻猴子，第一次知道這個地方是小時候看《狗狗猩猩大冒險》，
+                            猴子小龐和狗狗詹姆士的的旅遊節目中知道的，終於親眼目睹啦！函館的這座東照宮是北海道唯一一座東照宮，是在1869年由當地的武士和商人發起興建，以祈求函館繁榮和平安。
+                            相比於華麗的日光東照宮，函館東照宮顯得格外樸素。與其他神社相比，這裡僅是單純的祭祀場所，沒有任何附加的象徵物（如御守等）。
+                            也因如此，函館東照宮有一種難得的寧靜氛圍。
+                            日本總共有130幾座東照宮，主要都是集中在本州，尤其是德川家族勢力範圍較大的關東地區。幾個比較知名的還有東京上野東照宮、
+                            靜岡久能山東照宮、愛知鳳來寺山東照宮(因為德川家康出生於愛知縣，因此縣內有多處東照宮)、埼玉仙波東照宮和仙台東照宮。
+                            <a href="https://www.letsgojp.com/archives/302581" target="_blank">(資訊來源)</a>
+                        </p>
+                        <!-- 插入一個清除浮動的元素 -->
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="post"  id="place5">
+                        <h2 class="post-title">大沼國定公園</h2>
+                        <p class="post-date">2024年8月26日</p>
+                        <div class="float-left slider">
+                            <div><img src="img_2024Hokkaido/826/826_21.jpg" alt="大沼國定公園1"></div>
+                            <div><img src="img_2024Hokkaido/826/826_22.jpg" alt="大沼國定公園2"></div>
+                            <div><img src="img_2024Hokkaido/826/826_23.jpg" alt="大沼國定公園3"></div>
+                            <div><img src="img_2024Hokkaido/826/826_24.jpg" alt="大沼國定公園4"></div>
+                            <div><img src="img_2024Hokkaido/826/826_25.jpg" alt="大沼國定公園5"></div>
+                            <div><img src="img_2024Hokkaido/826/826_26.jpg" alt="大沼國定公園6"></div>
+                            <div><img src="img_2024Hokkaido/826/826_27.jpg" alt="大沼國定公園7"></div>
+                            <div><img src="img_2024Hokkaido/826/826_28.jpg" alt="大沼國定公園8"></div>
+                            <div><img src="img_2024Hokkaido/826/826_29.jpg" alt="大沼國定公園9"></div>
+                            <div><img src="img_2024Hokkaido/826/826_30.jpg" alt="大沼國定公園10"></div>
+                        </div>
+                        <p class="post-content">
+                            終於來到最後一個景點<a href="http://onumakouen.com/" target="_blank">大沼國定公園</a>。 一停好車(停車費500円/次)後在公園入口馬上就有腳踏車租借的店家，租車費用：
+                            電動2000円/3小時、一般1000円/3小時。原本以為這裡跟<a href="2024Asahikawa.html#place1" target="_blank">莫埃來沼公園</a>一樣是可以在公園裡騎乘的，結果並不是！
+                            老闆拿出大沼公園地圖，跟我們說要沿著外圍騎，一大圈大概需要1.5小時的時間，我們騎了一陣子後發現，沿著外圍根本什麼都看不到呀，全被樹擋住了，後來決定往回騎到一個老闆說：
+                            腳踏車不能騎進去，要停在外面，然後走進去拍照的景點。這次帶的自拍棒真的超棒的，可以自拍也可以當腳架使用，拍了很多四人的合照。我被允寶抓蜻蜓的功力嚇到，
+                            他看到小樹枝上的蜻蜓，跟我說他要抓(我們這次旅行中他已經抓了超多次的蚱蜢)，我心想說：這怎麼可能抓得到，沒想到他一秒就把蜻蜓抓起來了！超強！
+                        </p>
+                        <p class="post-content">
+                            因為還車前要先加油，然後租車公司會送我們到機場，需要預留一些還車時間，因此我們只在這邊待了約一個小時，沒有辦法好好逛逛，有點可惜，不過央央有騎到腳踏車很滿意。
+                            雖然早餐在海之燈飯店吃很飽，但現在也快要兩點了，想說在公園附近找地方隨便吃吃，公園裡雖然有一些餐廳，但不知哪家好吃，而且吃餐廳感覺要花很多時間，怕會來不及，
+                            所以最後找了一家Seicomart，想說再給央央、允寶吃一次美味炸豬排飯，結果大沼公園附近的這家Seicomart沒有熱食區！！只好隨便買點麵包飲料充飢。剛剛看我記錄的google map，
+                            我竟然忘了<a href="https://maps.app.goo.gl/t1jPm2ERYpKSgv4q7" target="_blank">七飯道路休息站</a>，再度大哭。
+                        </p>    
+                        <!-- 插入一個清除浮動的元素 -->
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="post"  id="place6">
+                        <h2 class="post-title">函館機場</h2>
+                        <p class="post-date">2024年8月26日</p>
+                        <div class="float-left slider">
+                            <div><img src="img_2024Hokkaido/826/826_31.jpg" alt="函館機場1"></div>
+                            <div><img src="img_2024Hokkaido/826/826_32.jpg" alt="函館機場2"></div>
+                            <div><img src="img_2024Hokkaido/826/826_33.jpg" alt="函館機場3"></div>
+                            <div><img src="img_2024Hokkaido/826/826_34.jpg" alt="函館機場4"></div>
+                            <div><img src="img_2024Hokkaido/826/826_35.jpg" alt="函館機場5"></div>
+                            <div><img src="img_2024Hokkaido/826/826_36.jpg" alt="函館機場6"></div>
+                        </div>
+                        <p class="post-content">
+                            抵達函館機場還有最後一個重要任務，就是柯南印章啦！在國內線遊客中心蓋上倒數第二個柯南印章後(花菱飯店沒去蓋)，拿去櫃台換小禮物和摸彩券，小禮物是柯南的L型夾。摸彩券我回台灣之後才線上填寫，
+                            希望有機會得獎囉！函館機場國際線真的超小的耶，check-in之後還有一段時間，便到國內線的大樓去做最後的採買，原本想說應該會有藥妝店吧！結果沒有，都是吃的！
+                            最後的最後，允寶看到這台飛機，非常非常的想買，但是這種玩具，他回去玩沒幾次就會被亂丟在一邊，非常佔空間，我們家客廳已經被亂七八糟玩具塞滿了，而且之前才買了一台超大的樂高飛機給他而已。
+                            所以不給他買，他整個非常傷心，一直到回台灣後一個禮拜，都還在碎碎念想著這台飛機。
+                        </p>
+                        <p class="post-content">
+                            出關之後，小小的免稅店，去買了咖啡牛奶和登別布丁，兩種都超級好吃的耶！大推。這裡也有賣LeTAO的起司蛋糕，但要帶回台灣的話還要加買一個超大的保冷袋，那個保冷袋還蠻貴的，
+                            所以我就沒買啦！(為什麼沒有賣小的保冷袋呢)
+                        </p>
+                        <p class="post-content">
+                            函館機場真的很小，不用太早去check-in，我覺得不逛國內線的話，提早1.5小時到便綽綽有餘。我們太早到了，等了一會兒才開始check-in，去國內線逛了好一陣子，回來國際線出關安檢，
+                            出關後還等了好久才開始登機。
+                        </p>
+                        <!-- 插入一個清除浮動的元素 -->
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <!-- Previous Day and Next Day Buttons -->
+                <div class="container text-center my-5">
+                    <div class="row">
+                        <div class="col">
+                            <a href="Toya2.html" class="btn custom-btn">Previous Day</a>
+                        </div>
+                        <div class="col">
+                            <a href="2024Konan.html" class="btn custom-btn">柯南集章活動</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 最下層：底部 footer -->
+    <footer>
+        <div class="container" style="max-width: 85%;">
+            <div class="row">
+                <div class="col-12 my-auto copyright">
+                    <p> Copyright © 2024 Iffy's Life </p>
+                    <p> iffyslife@gmail.com </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

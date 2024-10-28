@@ -1,0 +1,389 @@
+<!DOCTYPE html> <!-- 文件型態宣告(固定) -->
+<html lang="en">
+
+<!-- head:網頁的額外資訊，不在主畫面內 -->
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- 控制裝置縮放維持在一倍-->
+    <meta charset="utf-8" /> <!-- 網頁編碼是utf-8(萬國碼)-->
+    <!-- 設定網頁的視窗大小和縮放比例 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 固定手機螢幕為直式閱讀 -->
+    <meta name="screen-orientation" content="portrait"> <!-- 強制屏幕方向為直式 -->
+    <meta name="x5-orientation" content="portrait">  <!-- 針對某些手機瀏覽器（如 QQ 瀏覽器）的設定，強制使用直式顯示 -->
+    <meta name="x5-fullscreen" content="true">   <!-- 這些標籤設定允許全螢幕模式運行 -->
+    <meta name="full-screen" content="yes">  <!-- 這些標籤設定允許全螢幕模式運行 -->
+    
+    <!-- 網頁標籤icon & 名稱-->
+    <link rel="icon" type="image/jpg" href="img_2024Hokkaido/iffyslife_logo.jpg">
+    <title> 2024 伊達 </title>
+
+    <!-- Boostrap 導入程式 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!-- 連結Google提供的字體-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Architects Daughter|Klee One" />
+    <!-- 標題   |中文字型 -->
+
+    <!-- 連結自設的CSS樣式表-->
+    <link rel="stylesheet" type="text/css" href="navbar-footer.css" /> <!--導覽列樣式-->
+    <link rel="stylesheet" type="text/css" href="page-title-image.css" /> <!--橫幅圖片&文字樣式-->
+    <link rel="stylesheet" type="text/css" href="map.css" /> <!--地圖樣式-->
+    <link rel="stylesheet" type="text/css" href="main-page.css" /> <!--主內容樣式-->
+
+    <!-- 連結javascript-->
+    <script type="module" src="2024_Shikotsukomap.js"></script>
+
+    <!-- 引入 Google Maps JavaScript API -->
+    <script>
+        (g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })({
+            key: "AIzaSyAqHx3BG0l9jpwkeMCPco-nMPuPr1bgkwI",
+            v: "weekly",
+            // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+            // Add other bootstrap parameters as needed, using camel case.
+        });
+    </script>
+
+    <!-- 文章內圖片幻燈片設置 -->
+        <!-- 引入 Slick 的 CSS 文件 -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css"/>
+        
+        <!-- 引入 jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+        <!-- 引入 Slick 的 JavaScript 文件 -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+
+        <!-- 連結javascript-->
+        <script type="module" src="slick.min.js"></script>
+</head>
+
+<!-- body:網頁內文 -->
+
+<body>
+    <!-- 第一區塊：導覽列 共享模板 -->
+    <div id="navbar"></div>
+
+    <script>
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            })
+            .catch(error => console.log('Error loading navbar:', error));
+    </script>
+
+    <!-- 第二區塊：網頁上方圖片 + 主標題-->
+    <div class="travel">
+        <div class="top-picture">
+            <img src="img_2024Hokkaido/820_0.jpg" alt="Banner" class="banner">
+        </div>
+
+        <div class="page-title-wrapper-over-image">
+            <h1 class="page-title">2024 <span class="chinese">伊達 Shikotsuko</span></h1>
+            <h3 class="sub-text">2024/8/20</h3>
+        </div>
+
+        <!-- 第三區塊：主內容-二欄位 -->
+        <div class="container-fluid-main"> <!-- fluid: 水流樣式，for RWD -->
+            <div class="row justify-content-center"> <!-- 水平置中 (col少的份數變成左右空白) -->
+                <!-- 左邊欄位 -->
+                <div class="col-12 col-lg-3 fixed-left"> <!-- col-2(數字) 決定欄寬，total12份 -->
+                    <!-- 側邊導覽列-->
+                    <div class="page-guiline">
+                        <div class="Rtopic">
+                            <img src="img_2024Hokkaido/travel_logo.jpg" width="50" height="50" class="my-logo" />
+                            <span class="chinese">行程 </span> Travel Itinerary
+                        </div>
+                        <ul class="Trinfo">
+                            <a class="page-link chinese" href="2024Sapporo.html">Day 1-2 札幌</a>
+                            <a class="page-link chinese" href="2024Otaru.html">Day 3 小樽</a>
+                            <a class="page-link chinese" href="2024Asahikawa.html">Day 4 小樽-旭川</a>
+                            <a class="page-link chinese" href="2024Asahidake.html">Day 5 旭岳</a>
+                            <a class="page-link chinese" href="2024Biei.html">Day 6 美瑛-札幌</a>
+                            <a class="page-link chinese current-page" href="2024Shikotsuko.html">Day 7 札幌-伊達</a>
+                            <a class="page-link chinese" href="2024Noboribetsu.html">Day 8 有珠山 - 登別</a>
+                            <a class="page-link chinese" href="2024Noboribetsu2.html">Day 9 登別 - 洞爺湖</a>
+                            <a class="page-link chinese" href="2024Toya.html">Day 10 洞爺湖</a>
+                            <a class="page-link chinese" href="2024Toya2.html">Day 11 洞爺湖-函館</a>
+                            <a class="page-link chinese" href="2024Hakodate.html">Day 12-13 函館</a>
+                            <br>
+                            <a class="page-link chinese" href="2024Konan.html">函館 柯南集章</a>
+                            <a class="page-link chinese" href="2024Others.html">旅行二三事</a>
+                            <a class="page-link chinese" href="2024Foods.html">意外的美食</a>
+                        </ul>
+                    </div>
+                    <!--The div element for the map -->
+                    <div class="city_map" id="2024_Shikotsukomap"></div>
+                </div>
+                <!-- 右邊主欄位 -->
+                <div class="col-12 col-lg-9 main-content"> <!-- 文字靠左(可自行設定)-->
+                    <div class="blog">
+                        <div class="post" id="hotel">
+                            <h2 class="post-title">伊達 森のソラニワ (Mori no Soraniwa 親子飯店)</h2>
+                            <p class="post-date">2024年8月20日</p>
+
+                            <!-- Beamline Photo 幻燈片輪播形式 -->
+                            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel"
+                                data-bs-interval="2000">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="img_2024Hokkaido/820/mori_01.jpg" class="d-block" loading="lazy"
+                                            alt="飯店外觀">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="img_2024Hokkaido/820/mori_02.jpg" class="d-block" loading="lazy"
+                                            alt="四人房">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="img_2024Hokkaido/820/mori_03.jpg" class="d-block" loading="lazy"
+                                            alt="飯店大廳">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="img_2024Hokkaido/820/mori_04.jpg" class="d-block" loading="lazy"
+                                            alt="飯店後方小庭園">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="img_2024Hokkaido/820/mori_05.jpg" class="d-block" loading="lazy"
+                                            alt="室內吊床休息區">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="img_2024Hokkaido/820/mori_06.jpg" class="d-block" loading="lazy"
+                                            alt="自己決定吃飯時間">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="img_2024Hokkaido/820/mori_07.jpg" class="d-block" loading="lazy"
+                                            alt="餐廳裡的遊戲區">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="img_2024Hokkaido/820/mori_08.jpg" class="d-block" loading="lazy"
+                                            alt="晚餐">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="img_2024Hokkaido/820/mori_09.jpg" class="d-block" loading="lazy"
+                                            alt="早餐">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="img_2024Hokkaido/820/mori_10.jpg" class="d-block" loading="lazy"
+                                            alt="允寶晚餐&早餐">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="img_2024Hokkaido/820/mori_11.jpg" class="d-block" loading="lazy"
+                                            alt="戶外森林活動區">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="img_2024Hokkaido/820/mori_12.jpg" class="d-block" loading="lazy"
+                                            alt="戶外森林活動區">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button"
+                                    data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button"
+                                    data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <!-- 縮略圖導航 -->
+                            <div class="thumbnail-nav mt-3">
+                                <div class="row">
+                                    <div class="col-1">
+                                        <img src="img_2024Hokkaido/820/mori_01.jpg" class="img-fluid thumbnail"
+                                            data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0"
+                                            alt="Thumbnail 1">
+                                    </div>
+                                    <div class="col-1">
+                                        <img src="img_2024Hokkaido/820/mori_02.jpg" class="img-fluid thumbnail"
+                                            data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="1"
+                                            alt="Thumbnail 2">
+                                    </div>
+                                    <div class="col-1">
+                                        <img src="img_2024Hokkaido/820/mori_03.jpg" class="img-fluid thumbnail"
+                                            data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="2"
+                                            alt="Thumbnail 3">
+                                    </div>
+                                    <div class="col-1">
+                                        <img src="img_2024Hokkaido/820/mori_04.jpg" class="img-fluid thumbnail"
+                                            data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="3"
+                                            alt="Thumbnail 4">
+                                    </div>
+                                    <div class="col-1">
+                                        <img src="img_2024Hokkaido/820/mori_05.jpg" class="img-fluid thumbnail"
+                                            data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="4"
+                                            alt="Thumbnail 5">
+                                    </div>
+                                    <div class="col-1">
+                                        <img src="img_2024Hokkaido/820/mori_06.jpg" class="img-fluid thumbnail"
+                                            data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="5"
+                                            alt="Thumbnail 6">
+                                    </div>
+                                    <div class="col-1">
+                                        <img src="img_2024Hokkaido/820/mori_07.jpg" class="img-fluid thumbnail"
+                                            data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="6"
+                                            alt="Thumbnail 7">
+                                    </div>
+                                    <div class="col-1">
+                                        <img src="img_2024Hokkaido/820/mori_08.jpg" class="img-fluid thumbnail"
+                                            data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="7"
+                                            alt="Thumbnail 8">
+                                    </div>
+                                    <div class="col-1">
+                                        <img src="img_2024Hokkaido/820/mori_09.jpg" class="img-fluid thumbnail"
+                                            data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="8"
+                                            alt="Thumbnail 9">
+                                    </div>
+                                    <div class="col-1">
+                                        <img src="img_2024Hokkaido/820/mori_10.jpg" class="img-fluid thumbnail"
+                                            data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="9"
+                                            alt="Thumbnail 10">
+                                    </div>
+                                    <div class="col-1">
+                                        <img src="img_2024Hokkaido/820/mori_11.jpg" class="img-fluid thumbnail"
+                                            data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="10"
+                                            alt="Thumbnail 11">
+                                    </div>
+                                    <div class="col-1">
+                                        <img src="img_2024Hokkaido/820/mori_12.jpg" class="img-fluid thumbnail"
+                                            data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="11"
+                                            alt="Thumbnail 12">
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <p class="post-content">
+                                出發前不久看到"北海道女婿"介紹的親子飯店，看起來超讚的，價錢也還可以接受。而且也是在這次北海道之旅的行程路線上，便趕緊調整行程，硬是來住了一天，這間飯店是我此行最喜歡的飯店！玩得太開心啦。
+                                飯店位於支芴湖和洞爺湖中間的"伊達地區"，訂房是直接在 <a href="https://www.mori-soraniwa.com/"
+                                    target="_blank">飯店官網 </a> 訂的。日本飯店很棒的一點是，房費都是入住時(或是check-out)再付費即可，
+                                而且會有一個免費取消的日期，如果更改行程，只要在該日期前都可以免費取消，這樣在安排行程時就有很大的彈性。
+                            </p>
+                            <p class="post-color">這兩天在飯店的行程如下：
+                                <u1 class="list">
+                                    <li> Day 1： 約16:40 自助check-in - 17:15 晚餐(80分鐘) - 19:00 男生組:B1遊戲室、溫泉 - 19:30 我去泳池、溫泉
+                                        - 21:30 櫃台借桌遊回房間玩。 </li>
+                                    <li> Day 2：7:00 早餐 - 8:00 戶外泳池 - 10:00 check out - 10:30 戶外森林活動+滑索(另外付費) - 11:30
+                                        B1遊戲室 - 12:00 一樓吊床區耍廢 - 12:30 離開。 </li>
+                                </u1>
+                            </p>
+                            <p class="post-content">
+                                飯店非常的大，公共空間也很寬敞，所以不會有擁擠的感覺。飯店整體配色很活潑但又不置於讓人眼花撩亂，以溫暖的木質色系與大量採光，點綴一點鮮豔活潑的色彩，很舒服、非常符和親子飯店的定位。
+                                很多細節都有考慮到"親子"，不是只是名義上的親子飯店，除了飯店主色彩之外，另一個驚豔的就是-餐廳有一區簡單的兒童遊戲區，這真的太重要了！讓爸媽可以放鬆吃飯的貼心設置。取餐區也有特別規劃
+                                一區是小朋友喜愛的食物，最特別的是有 -
+                                離乳食品！！(台灣哪家親子飯店有提供離乳食品?)，餐點的部分我也非常喜歡，雖然沒有很多生魚片，但是每個菜色看起來都很好吃。九宮格的餐盤讓食物可以一格一種的
+                                好好放置，湯汁不會流到旁邊的食物。整個看起來就超美的，令人食慾大開，飲品、甜點種類也非常多，吃得超滿足。
+                            </p>
+                            <p class="post-content">
+                                另一個貼心的地方是：浴場連通泳池（室內三水道25公尺的泳池+烤箱
+                                (烤箱面戶外泳池為透明玻璃，方便看外面)，室外兒童遊戲池的部分，在一個比較低的地方，需要走幾階樓梯下去，上面有一池熱泉
+                                （方便爸媽泡在熱水裡看小孩玩，或是玩好水上來時可以先在這裡把身體泡熱，再進去洗澡），很有巧思和貼心的設計。游完泳可以直接去大浴場洗澡、泡溫泉，超級方便。
+                            </p>
+                            <p class="post-content">
+                                B1的兒童室內遊戲場是另外付費，一人500円，可以玩二天，check out後還是可以去玩。允寶超愛球池，第一天晚上去了之後，一直說還要再去。所以第二天又去玩了好一陣子才離開。
+                            </p>
+                            <p class="post-content">
+                                這裡的重點行程就是戶外森林的繩索挑戰和滑索啦 (Athletic Park)！繩索挑戰又兩個等級：Family Course和Fun Course，原本想說我們玩Family
+                                Course體驗一下就好，但央央看到地圖發現Fun Course
+                                路程比較長，可以玩的種類比較多，他想要去Fun Course，所以我們就兵分二路，我跟允寶去Family Course，央央跟阿光去Fun
+                                Course。光看地圖沒有感覺，實際看到Fun Course之後：
+                                OMG！也太高了吧！然後因為安全繩索設計的關係，出發之後是無法回頭的，只能硬著頭皮走完，難怪一開始說明注意事項時，工作人員一直強調 no return！no return！
+                                央央他們前面就因為一位很害怕的小男生而卡超久的。
+                                原本以為兩個Course走到終點之後，從長滑索(Long Zip Line)直接滑回起點，結果並不是！是要自己走回起點，換裝備之後，再走到長滑索(Long Zip Line)的起點，
+                                然後滑回來，但是真的非常好玩！只是滑一次要1500日幣，不是很便宜啊！
+                                (<a href="https://www.mori-soraniwa.com/en/musasabi/" target="_blank">Athletic Park 官方資訊
+                                </a>)
+                            </p>
+                            <p class="post-content">
+                                忘記說，房間也很大很舒適，38平方米，兩張舒服的雙人床、塌塌米區、小沙發、浴室(沒有特別拍)，窗外綠意盎然，整個非常舒服。更多資訊就請大家自己上官網查詢啦。
+                            </p>
+                            <p class="post-content">
+                                最後提醒一個我們錯過的溫泉。伊達之森跟附近的另一家溫泉旅館「ホロホロ山荘」有合作(還是其實根本是同個集團?)，總之，有免費的接送小巴可以來回兩個館，
+                                需要穿著館內浴衣才能搭乘，巴士運行有一個固定的時間表，印象是下午3點到晚上8點左右而已，所以想去體驗不同的溫泉，要先規劃好時間。我是進房後看到房間內的旅館資訊才發現有這一個服務。
+                                官網寫在這個頁面的最下面，連結給大家參考。 (<a href="https://www.mori-soraniwa.com/onsen/" target="_blank">溫泉
+                                </a>)
+                            </p>
+                            <a class="website" href="https://www.mori-soraniwa.com/" target="_blank">飯店官網 </a>
+                        </div>
+
+                        <div class="post" id="place1">
+                            <h2 class="post-title">北海道神宮</h2>
+                            <p class="post-date">2024年8月20日</p>
+                            <div class="float-left slider">
+                                <div><img src="img_2024Hokkaido/820/820_11.jpg" alt="Photo 北海道神宮1"></div>
+                                <div><img src="img_2024Hokkaido/820/820_12.jpg" alt="Photo 北海道神宮2"></div>
+                                <div><img src="img_2024Hokkaido/820/820_13.jpg" alt="Photo 北海道神宮3"></div>
+                                <div><img src="img_2024Hokkaido/820/820_14.jpg" alt="Photo 北海道神宮4"></div>
+                                <div><img src="img_2024Hokkaido/820/820_15.jpg" alt="Photo 北海道神宮5"></div>
+                                <div><img src="img_2024Hokkaido/820/820_16.jpg" alt="Photo 北海道神宮6"></div>
+                                <div><img src="img_2024Hokkaido/820/820_17.jpg" alt="Photo 札幌場外市場7"></div>
+                            </div>
+                            <p class="post-content">
+                                前一天從旭川回到札幌，住在好友家。這天早上先一起到場外市場吃大閘蟹，然後去<a href="https://www.sapporo.travel/zh-tw/spot/facility/hokkaido_shrine/" target="_blank">北海道神宮</a>
+                                祈福希望求職順利 (我們去年沒有來)。北海道神宮腹地很大，旁邊就是円山動物園，但礙於時間的關係，沒辦法去，
+                                參拜完之後，在神宮茶屋和六花亭吃個點心便離開了。大約中午回到好友家拿取行李後，告別好友(他下午也要飛去京都參加研討會，我們這次配合得十分巧妙！不然就要錯過了)，下次就10月台灣見啦！
+                            </p> 
+                            <!-- 插入一個清除浮動的元素 -->
+                            <div class="clearfix"></div> 
+                        </div>
+                        <div class="post" id="place2">
+                            <h2 class="post-title">支芴湖</h2>
+                            <p class="post-date">2024年8月20日</p>
+                            <div class="float-left slider">
+                                <div><img src="img_2024Hokkaido/820/820_01.jpg" alt="Photo 支芴湖1"></div>
+                                <div><img src="img_2024Hokkaido/820/820_02.jpg" alt="Photo 支芴湖2"></div>
+                                <div><img src="img_2024Hokkaido/820/820_03.jpg" alt="Photo 支芴湖3"></div>
+                                <div><img src="img_2024Hokkaido/820/820_04.jpg" alt="Photo 支芴湖4"></div>
+                                <div><img src="img_2024Hokkaido/820/820_05.jpg" alt="Photo 支芴湖5"></div>
+                                <div><img src="img_2024Hokkaido/820/820_06.jpg" alt="Photo 支芴湖6"></div>
+                                <div><img src="img_2024Hokkaido/820/820_07.jpg" alt="Photo 支芴湖7"></div>
+                                <div><img src="img_2024Hokkaido/820/820_08.jpg" alt="Photo 支芴湖8"></div>
+                                <div><img src="img_2024Hokkaido/820/820_09.jpg" alt="Photo 支芴湖9"></div>
+                                <div><img src="img_2024Hokkaido/820/820_10.jpg" alt="Photo 支芴湖10"></div>
+                                <div><img src="img_2024Hokkaido/820/820_20.jpg" alt="Photo 支芴湖11"></div>
+                            </div>
+                            <p class="post-content">
+                                往今天的第一個景點-支芴湖出發啦！支芴湖的湖水非常清澈，僅次於秋田縣的田澤湖，可以很清楚的看見湖底，出發之前我蠻期待的，也查到可以在支芴湖滑透明獨木舟，
+                                感覺超棒的！但是網站寫 <a href="https://ocean-days.com/" target="_blank">(Ocean-Days)</a>
+                                寫7-9月只有日文服務，日等級要N2以上，只能放棄，而且今天到支芴湖時是陰雨天。
+                                不過遊客中心規劃得超棒，介紹地形、自然生態等，很多互動裝置，設計得很棒，小朋友也看得很開心。這次特別買了一個本子來收集紀念章，
+                                支芴湖游客中心的印章是我覺得最可愛的！在這裡參觀了好一段時間，趁著雨變小趕緊到湖邊走走，風大有點冷，只稍微走了一小段，央跟允寶就一直唉唉叫，只好快速拍完照後就回車上，
+                                前往今天的重頭戲 - 伊達森のソラニワ親子飯店啦！
+                            </p>
+                            <!-- 插入一個清除浮動的元素 -->
+                            <div class="clearfix"></div>
+                        </div>
+                        <!-- Previous Day and Next Day Buttons -->
+                        <div class="container text-center my-5">
+                            <div class="row">
+                                <div class="col">
+                                    <a href="2024Biei.html" class="btn custom-btn">Previous Day</a>
+                                </div>
+                                <div class="col">
+                                    <a href="2024Noboribetsu.html" class="btn custom-btn">Next Day</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 最下層：底部 footer -->
+        <footer>
+            <div class="container" style="max-width: 85%;">
+                <div class="row">
+                    <div class="col-12 my-auto copyright">
+                        <p> Copyright © 2024 Iffy's Life </p>
+                        <p> iffyslife@gmail.com </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+</body>
+
+</html>

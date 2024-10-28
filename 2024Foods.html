@@ -1,0 +1,320 @@
+<!DOCTYPE html> <!-- 文件型態宣告(固定) -->
+<html lang="en">
+
+<!-- head:網頁的額外資訊，不在主畫面內 -->
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- 控制裝置縮放維持在一倍-->
+    <meta charset="utf-8" /> <!-- 網頁編碼是utf-8(萬國碼)-->
+
+    <!-- 設定網頁的視窗大小和縮放比例 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 固定手機螢幕為直式閱讀 -->
+    <meta name="screen-orientation" content="portrait"> <!-- 強制屏幕方向為直式 -->
+    <meta name="x5-orientation" content="portrait">  <!-- 針對某些手機瀏覽器（如 QQ 瀏覽器）的設定，強制使用直式顯示 -->
+    <meta name="x5-fullscreen" content="true">   <!-- 這些標籤設定允許全螢幕模式運行 -->
+    <meta name="full-screen" content="yes">  <!-- 這些標籤設定允許全螢幕模式運行 -->
+
+    <!-- 網頁標籤icon & 名稱-->
+    <link rel="icon" type="image/jpg" href="img_2024Hokkaido/iffyslife_logo.jpg">
+    <title> 2024 意外的美食 </title>
+
+    <!-- Boostrap 導入程式 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!-- 連結Google提供的字體-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Architects Daughter|Klee One" />
+    <!-- 標題   |中文字型 -->
+
+    <!-- 連結自設的CSS樣式表-->
+    <link rel="stylesheet" type="text/css" href="navbar-footer.css" /> <!--導覽列樣式-->
+    <link rel="stylesheet" type="text/css" href="page-title-image.css" /> <!--橫幅圖片&文字樣式-->
+    <link rel="stylesheet" type="text/css" href="main-page.css" /> <!--主內容樣式-->
+    
+    <!-- 文章內圖片幻燈片設置 -->
+        <!-- 引入 Slick 的 CSS 文件 -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css"/>
+        
+        <!-- 引入 jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+        <!-- 引入 Slick 的 JavaScript 文件 -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+
+        <!-- 連結javascript-->
+        <script type="module" src="slick.min.js"></script>
+</head>
+
+<!-- body:網頁內文 -->
+
+<body>
+    <!-- 第一區塊：導覽列 -->
+    <div id="navbar"></div>
+
+    <script>
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            })
+            .catch(error => console.log('Error loading navbar:', error));
+    </script>
+
+    <!-- 第二區塊：網頁上方圖片 + 主標題-->
+    <div class="travel">
+        <div class="top-picture">
+            <img src="img_2024Hokkaido/foods.jpg" alt="Banner" class="banner">
+        </div>
+
+        <div class="page-title-wrapper-over-image">
+            <h1 class="page-title">2024 <span class="chinese">意外的美食</span></h1>
+            <h3 class="sub-text">2024/8/14-26</h3>
+        </div>
+
+        <!-- 第三區塊：主內容-二欄位 -->
+        <div class="container-fluid-main"> <!-- fluid: 水流樣式，for RWD -->
+            <div class="row justify-content-center"> <!-- 水平置中 (col少的份數變成左右空白) -->
+                <!-- 左邊欄位 -->
+                <div class="col-12 col-lg-3 fixed-left"> <!-- col-2(數字) 決定欄寬，total12份 -->
+                    <!-- 側邊導覽列-->
+                    <div class="page-guiline">
+                    <div class="Rtopic">
+                        <img src="img_2024Hokkaido/travel_logo.jpg" width="50" height="50" class="my-logo" />
+                        <span class="chinese">行程 </span> Travel Itinerary
+                    </div>
+                    <ul class="Trinfo">
+                        <a class="page-link chinese" href="2024Sapporo.html">Day 1-2 札幌</a>
+                        <a class="page-link chinese" href="2024Otaru.html">Day 3 小樽</a>
+                        <a class="page-link chinese" href="2024Asahikawa.html">Day 4 小樽-旭川</a>
+                        <a class="page-link chinese" href="2024Asahidake.html">Day 5 旭岳</a>
+                        <a class="page-link chinese" href="2024Biei.html">Day 6 美瑛-札幌</a>
+                        <a class="page-link chinese" href="2024Shikotsuko.html">Day 7 札幌-伊達</a>
+                        <a class="page-link chinese" href="2024Noboribetsu.html">Day 8 有珠山-登別</a>
+                        <a class="page-link chinese" href="2024Noboribetsu2.html">Day 9 登別-洞爺湖</a>
+                        <a class="page-link chinese" href="2024Toya.html">Day 10 洞爺湖</a>
+                        <a class="page-link chinese" href="2024Toya2.html">Day 11 洞爺湖-函館</a>
+                        <a class="page-link chinese" href="2024Hakodate.html">Day 12-13 函館</a>
+                        <br>
+                        <a class="page-link chinese" href="2024Konan.html">函館 柯南集章</a>
+                        <a class="page-link chinese" href="2024Others.html">旅行二三事</a>
+                        <a class="page-link chinese current-page" href="2024Foods.html">意外的美食</a>
+                    </ul>
+                </div>
+                <!--The div element for the map -->
+                <div class="city_map" id="2024_Otarumap"></div>
+                </div>
+                <!-- 右邊主欄位 -->
+                <div class="col-12 col-lg-9 main-content"> <!-- 文字靠左(可自行設定)-->
+                    <div class="blog">
+                        <div class="post" id="place1">
+                            <h2 class="post-title">積丹 食事処 純の店</h2>
+                            <p class="post-date">2024年8月16日</p>
+                            <div class="float-left slider">
+                                <div><img src="img_2024Hokkaido/foods/food_51.jpg" alt="Photo 純の店1"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_52.jpg" alt="Photo 純の店2"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_53.jpg" alt="Photo 純の店3"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_54.jpg" alt="Photo 純の店4"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_55.jpg" alt="Photo 純の店5"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_56.jpg" alt="Photo 純の店6"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_57.jpg" alt="Photo 純の店7"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_58.jpg" alt="Photo 純の店8"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_59.jpg" alt="Photo 純の店9"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_60.jpg" alt="Photo 純の店10"></div>
+                            </div>
+                            <p class="post-content">
+                            下午3:00結束小樽青洞窟的行程，要趕緊找地方吃飯。因為我原本有想要去神威岬，但評估之後覺得路途太遠，折衷在地圖上選了積丹附近的黃金岬，
+                            所以就在google map上尋找這附近下午沒休息的店，而發現了這家<a href="https://shokujidokoro-junnnomise.com/" target="_blank">食事処 純の店</a>。
+                            我們大概下午3:30抵達，卻發現它是休息的狀態，寫著下午4:30才開始營業，不過門口有放候位單，先填了候位單之後，決定到附近海岸走走逛逛，等時間差不多再回來。
+                            原本以為是看海的峭壁，但是導航到一個漁港的角落，沒有路可以開上去，只好改去附近另一個看起來是公園的綠地，結果是個沙灘海水浴場，日本人都在沙灘搭帳篷玩水、烤肉！ 
+                            允寶當然馬上也衝去玩水、玩沙。等16:30再回到餐廳，原本以為還沒到吃飯時間不會有什麼人，沒想到已經有好幾組人也在等待了。
+                            我們是候位第一組，餐廳內走道其實蠻小的，我們坐在一個和式半開放包廂內，我和阿光都點了生魚片定食、央央點天婦羅定食、允寶吃炸雞定食、好友點炸蝦定食，每個人都吃得超滿足！
+                            生魚片超級新鮮，種類也很多，終於吃到美味的海膽了！！沒有海味、不是海水鹹味，而是甜的。允寶的炸雞超級大塊！又多汁。央央對他的炸天婦羅稱讚不已！好友也說炸蝦非常好吃！
+                            現點現做，感覺有等個15~20分鐘才開始出餐，我們大個吃了一個多小時，用完餐出來時外面有一組客人在等待，他們進去後，老闆就關店啦！掛出本日營業終了的牌子！才17:30左右而已說！
+                            (goole map 上寫的營業時間是到19:00，18:00 來的人不就哭哭了嗎？這裡不是很熱鬧的觀光區，似乎只是一個小住宅區，沒有什麼人，所以來用餐的應該都是特別過來的客人。)
+                            </p>
+                            <!-- 插入一個清除浮動的元素 -->
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="post"  id="place2">
+                            <h2 class="post-title">旭川 農珈屋本店 (咖哩)</h2>
+                            <p class="post-date">2024年8月18日</p>
+                            <div class="float-left slider">
+                                <div><img src="img_2024Hokkaido/foods/food_1.jpg" alt="Photo 農珈屋1"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_2.jpg" alt="Photo 農珈屋2"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_3.jpg" alt="Photo 農珈屋3"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_4.jpg" alt="Photo 農珈屋4"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_5.jpg" alt="Photo 農珈屋5"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_6.jpg" alt="Photo 農珈屋6"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_7.jpg" alt="Photo 農珈屋7"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_8.jpg" alt="Photo 農珈屋8"></div>
+                            </div>
+                            <p class="post-content">
+                                <a href="https://maps.app.goo.gl/GSTRFLcDBQpv8YDJA" target="_blank">農珈屋</a>
+                                是我們上旭岳之前的午餐，早上check out 後直奔
+                                <a href="https://maps.app.goo.gl/7q3J7arXV6iMGpdq9" target="_blank">uniqlo</a>
+                                採購，雖然旁邊就是旭川有名的拉麵村，但是當時也不知道為什麼沒有逛一下，買完就上車出發去這個我亂找的店。
+                                原本以為是個人經營的附餐小咖啡館，到了之後發現ㄟ~~ 不是耶，而且還很熱門！外觀看起來很普通，但裡面別有洞天，空間很寬敞，而且布置得很舒適，後方就是一大片稻田，
+                                也可以選擇在戶外用餐。11點多到的時候已經客滿了，需要候位，我們沒有電話，店員很貼心的說可以留車號，然後在車子附近等待即可，大約等了10~15分鐘之後就有位置可以入坐啦。
+                            </p>
+                            <p class="post-content">
+                                這家店的招牌是各種咖哩！有自選3種咖哩，或是選搭配好的。我是選看起來超美的兩種蝦咖哩(紅、黃咖哩醬，￥1550)，阿光是自選三種咖哩(豬肉、雞肉和夏季野菜，￥1550)、一份兒童咖哩(￥750)，因為怕他們不吃，
+                                所以只點了一份，結果有點不夠吃。咖哩飯上來時真的超驚豔的！！配色超美，很多美味的蔬菜！我的蝦咖哩好好吃，而且是我喜歡的小辣，阿光也覺得他的咖哩好吃，尤其看央央跟允寶也清盤就知道，兩個挑食鬼都吃光光，
+                                應該一人點一份或是飯點大碗的才對，失策！這次旅行比起之前有吃到多比較蔬菜，之前在札幌吃的湯咖哩裡也是很多美味蔬菜。
+                                另外，冰淇淋的部分看起來也很好吃，所以也點了一個原味冰淇淋(￥500)，和一個允寶會愛的巧克力聖代，(￥650)結果允寶沒有很愛，竟然吃一吃就不吃了，
+                                好吧，這個巧克力我吃起來覺得超甜！但允寶怎麼會不愛呢？
+                            </p>
+                            <!-- 插入一個清除浮動的元素 -->
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="post" id="place3">
+                            <h2 class="post-title">室蘭 一輪草蕎麥麵</h2>
+                            <p class="post-date">2024年8月22日</p>
+                            <div class="float-left slider">
+                                <div><img src="img_2024Hokkaido/foods/food_11.jpg" alt="Photo 一輪草1"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_12.jpg" alt="Photo 一輪草2"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_13.jpg" alt="Photo 一輪草3"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_14.jpg" alt="Photo 一輪草4"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_15.jpg" alt="Photo 一輪草5"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_16.jpg" alt="Photo 一輪草6"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_17.jpg" alt="Photo 一輪草7"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_18.jpg" alt="Photo 一輪草8"></div>
+                            </div>
+                            <p class="post-content">
+                                10:00 check
+                                out後到登別的大湯沼走走拍照。之後前往洞爺湖的途中，帶小孩到川上公園玩滾輪溜滑梯，天氣陰陰有點下雨，公園完全沒人，除了溜滑梯之外還有鞦韆跟攀爬架，有超大一片草皮可以跑跳，也種了很多櫻花，
+                                春天應該是個賞櫻景點。之後便到室蘭來午餐，原本要去吃しぶき屋味增拉麵，結果到了之後才發現這幾天公休，老闆出去玩了，明天才開店。臨時找附近評價不錯的店家，就來到了這家
+                                <a href="https://maps.app.goo.gl/twhbiiKfaPSbCrHC9" target="_blank">江戸蕎麦 一輪草</a>，
+                                已經過了午餐時間，店裡完全沒人！菜單全日文，沒有圖片，雖然有goole翻譯，但還是看不是很懂，就亂點一通，阿姨很親切。蕎麥麵很好吃😋，允寶和央央都很認真的自己吃。
+                                我們點了季節限定的兩款蕎麥麵，阿光的是有鴨肉丸和豬肉(￥1300)，沾醬比較濃郁，我的是季節冷蕎麥麵(￥1400)，麵條非常Q彈，有很多蔬菜、海帶，配色超很美。央央的是我拿google
+                                map上其他人po的照片給阿姨看說一點這個，感覺是店內固定提供的一款蕎麥麵，也有鴨肉丸，但沒有豬肉片(應該是￥1000)，幫允寶點了兒童餐，是熱的蕎麥湯麵(沒弄錯的話應該是￥500)。
+                                吃到一半阿姨送來蕎麥麵湯，後來還贈送我們飯後甜點，一種吃起來像地瓜乾的食物(￥300)，桌牌介紹上寫是店主太太故鄉，茨城縣的人氣產品。這家店如google評價上所說，很親切，蕎麥麵也很美味。
+                                對了，據說每天會使用不同產地的蕎麥，今天用的是：洞爺湖X黑松內....(看不懂的日文)的蕎麥麵。
+                            </p>
+                            <!-- 插入一個清除浮動的元素 -->
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="post"  id="place4">
+                            <h2 class="post-title">室蘭 えんとつ町のドーナツ屋さん (甜甜圈)</h2>
+                            <p class="post-date">2024年8月22日</p>
+                            <div class="float-left slider">
+                                <div><img src="img_2024Hokkaido/foods/food_21.jpg" alt="Photo 甜甜圈1"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_22.jpg" alt="Photo 甜甜圈2"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_23.jpg" alt="Photo 甜甜圈3"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_24.jpg" alt="Photo 甜甜圈4"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_25.jpg" alt="Photo 甜甜圈5"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_26.jpg" alt="Photo 甜甜圈6"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_27.jpg" alt="Photo 甜甜圈7"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_28.jpg" alt="Photo 甜甜圈8"></div>
+                            </div>
+                            <p class="post-content">
+                                <a href="https://maps.app.goo.gl/jGQ4fAwtpqjPexY6A" target="_blank">えんとつ町のドーナツ屋さん</a>
+                                    是看到
+                                <a href="https://www.youtube.com/@eve16824/featured" target="_blank">Eve伊芙</a>
+                                的介紹知道的小店，我們從登別到洞爺湖時就特別繞過來室蘭午餐&買甜甜圈啦！店在一個感覺有點荒涼的小住宅區，出發前在google
+                                map上看實景圖，覺得路很小，擔心開車來不知道車要停哪裡，來了之後發現門口有就停車位，所以很方便不用擔心。非常可愛的日雜風小店，
+                                有幾個位置可以坐在店內吃，但是我們帶著兩個小孩就不考慮啦！坐下來也沒有悠閒的感覺。而且才剛吃完好吃的蕎麥麵午餐，
+                                肚子還飽飽的，就外帶當明天的早餐啦！口味好多，好難選擇！最後選了豆乳(￥180)、咖啡牛奶(￥270)、巧克力(￥230)、麻糬巧克杏仁(￥230)四種。
+                                它的甜甜圈跟台式和美式甜甜圈的口感都非常不一樣，是比較鬆軟的日式甜麵包，鬆鬆軟軟也蠻不錯吃。
+                            </p>
+                            <!-- 插入一個清除浮動的元素 -->
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="post"  id="place5">
+                            <h2 class="post-title">洞爺湖 Hydune 漢堡</h2>
+                            <p class="post-date">2024年8月23日</p>
+                            <div class="float-left slider">
+                                <div><img src="img_2024Hokkaido/foods/food_31.jpg" alt="Photo Hydune1"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_32.jpg" alt="Photo Hydune2"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_33.jpg" alt="Photo Hydune3"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_34.jpg" alt="Photo Hydune4"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_35.jpg" alt="Photo Hydune5"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_36.jpg" alt="Photo Hydune6"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_37.jpg" alt="Photo Hydune7"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_38.jpg" alt="Photo Hydune8"></div>
+                            </div>
+                            <p class="post-content">
+                                去完<a href="https://www.toyasunpalace.co.jp/" target="_blank">Toya Sun Place</a>日歸溫泉後，下午三點飢腸轆轆，阿光在google map上找了這家評價看起來很好，下午又沒休息的漢堡店 - 
+                                <a href="https://maps.app.goo.gl/NqxLPM9mtfJ8Y29KA" target="_blank">Hydune</a>。雖然google map上寫營業到下午5:00，
+                                但是我們大概3:30來的時候牛的部分只剩最後一份牛肉漢堡，
+                                因此點了一牛二雞，漢堡種類好多，一時之間也是很難選擇，點了招牌的牛肉漢堡 - Hydune
+                                Burger(￥1350)，和兩種不同的雞肉漢堡，現點現做，等了好一陣子之後，外帶到洞爺湖邊享用啦！我們點完餐之後店家就提早打烊關店了！真的是好險。
+                                麵包的部分使用的是比較乾硬一點的圓麵包(有一點像法式圓麵包)，我還蠻喜歡的，比較不會一下子就被醬汁弄得濕濕爛爛，特別的是生菜的部分是用高麗菜絲！味道的話還是最喜歡牛肉漢堡，雞肉還是比較乾一點，但是照燒雞肉醬汁比較香和濃稠，
+                                所以也不錯吃！點漢堡會附薯塊，含皮炸的，飲料我們自己去隔壁7-11買可樂來配。吃得超級滿足。(三個漢堡含薯塊總共￥3550)
+                            </p>
+                            <!-- 插入一個清除浮動的元素 -->
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="post"  id="place6">
+                            <h2 class="post-title">洞爺湖水之駅休息站 & ラムヤート 烘焙屋</h2>
+                            <p class="post-date">2024年8月24日</p>
+                            <div class="float-left slider">
+                                <div><img src="img_2024Hokkaido/foods/food_61.jpg" alt="Photo ラムヤート 烘焙屋1"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_62.jpg" alt="Photo ラムヤート 烘焙屋2"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_63.jpg" alt="Photo ラムヤート 烘焙屋3"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_64.jpg" alt="Photo ラムヤート 烘焙屋4"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_65.jpg" alt="Photo ラムヤート 烘焙屋5"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_66.jpg" alt="Photo ラムヤート 烘焙屋6"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_67.jpg" alt="Photo ラムヤート 烘焙屋7"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_68.jpg" alt="Photo ラムヤート 烘焙屋8"></div>
+                            </div>
+                            <p class="post-content">
+                                這次訂的洞爺湖住宿<a href="https://maps.app.goo.gl/XgxDb2QkgCSZ1Rww5" target="_blank">LAKE View Private log House</a>
+                                就在<a href="https://maps.app.goo.gl/YaTeZTseW11Xtsjs5" target="_blank">水之駅休息站</a>附近的小山坡上，之前有看到北海道女婿推薦過這個人比較少的休息站，
+                                食物也很好吃的樣子，便趁要離開洞爺湖之前過來逛一逛啦！我要大推這個地方！！休息站裡面的賣店，不是賣紀念品而是賣農產品(也是有一點點紀念品啦)，我整個相見恨晚，
+                                應該到洞爺湖的第一天就先來採買才對！一進門就看到藍莓、水蜜桃、一整排各式番茄，然後超多蔬菜，水蜜桃比之前在超市看到的都便宜，四大顆才￥950，這怎麼能不買呢！？我還買了四種不同的番茄，
+                                因為這次在北海道吃到的番茄，不管長得圓的扁的、綠的、黃的、紅的都好甜好好吃！！我在店裡認真選購時，無聊的允寶發現門口旁的桌子有彩色筆，就很安靜的自己在那邊畫畫，我們吃水蜜桃時，因為他不吃，
+                                所以繼續畫畫中。 吃飽喝足終於走出休息站的建築物到湖邊，這裡超級讚的，可以下水去玩！旁邊有一大片樹林公園，超適合野餐的！所以原本只是來大概看一下，想說拍拍照不會花太多時間，結果卻待了一個多小時。
+                                允寶玩沙、玩水叫不動，我就去對面一家評價很高的麵包店 - <a href="https://maps.app.goo.gl/2VxQp7jcbuEJUisx8" target="_blank">ラムヤート</a>逛逛(也是北海道女婿推薦的)。一樣外觀超不起眼，完全看不出來是一家店，我鼓起勇氣走進去，裡面也灰灰暗暗的，但真的有賣麵包耶！而且是窯烤麵包，
+                                難怪門口堆了好多木頭，然後一樣都是日文，看不懂，而且還不便宜，一個麵包要價￥700~900，但都進來了，就亂選了一個看起來像是招牌的金字塔型麵包，上面還有烙印一個超可愛logo，跟另一個歐式麵包（後來發現是無花果口味），
+                                拿到麵包時覺得非常有份量，在門口讓允寶跟央央一人拿一個拍照，央央一拍完照馬上朝金字塔頂端咬了下去，然後大呼好吃😋！外皮硬硬脆脆，裡面很柔軟，是店家自調的香料口味，很像pizza(有羅勒的味道)，也很像印度咖哩的味道，真的好好吃！
+                                但是允寶都不愛，其實架上還有一款看起來像吐司的麵包，但是它表面超級黑，我就沒選。因為金字塔實在太好吃了，應央央之求，我們已經離開一小段之後又繞回去再買一個，
+                                然後也一起買了那個允寶可能會吃的像吐司的麵包🍞，結果那個也很好吃，有很香的奶油味，一點甜甜的，口感比較細緻。結果今天一整天就靠這四個紮實好吃的麵包撐到晚上！
+                                四個麵包總共花費￥3130，那個看起來不大，但其實也很有份量的超好吃金字塔最貴，一個就要￥880，但是我覺得很值得，一定要吃！
+                            </p>
+                            <!-- 插入一個清除浮動的元素 -->
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="post"  id="place7">
+                            <h2 class="post-title">Seciomart 炸豬排丼</h2>
+                            <p class="post-date">2024年8月北海道旅行</p>
+                            <div class="float-left slider">
+                                <div><img src="img_2024Hokkaido/foods/food_41.jpg" alt="Photo Seciomart1"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_42.jpg" alt="Photo Seciomart2"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_43.jpg" alt="Photo Seciomart3"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_44.jpg" alt="Photo Seciomart4"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_45.jpg" alt="Photo Seciomart5"></div>
+                                <div><img src="img_2024Hokkaido/foods/food_46.jpg" alt="Photo Seciomart6"></div>
+                            </div>
+                            <p class="post-content">
+                                Seciomart
+                                熱食區的炸豬排丼(￥540未稅) 榮獲我家兩小最愛，原本應該要吃四次的，但是有一次因為熱食區沒有這個炸豬排丼，只好買了牛肉丼(也是非常好吃)，一次是去的那家Seciomart(函館大沼公園附近)，
+                                竟然沒有熱食區(哭哭)。 我這次吃到覺得好吃的便利商店食物是 - Seciomart
+                                熱食區的明太子飯糰(￥208未稅)！米飯濕潤度夠，但又粒粒分明！實在是太好吃啦！雖然大家說日本的白飯很好吃，但是我之前來日本其實都沒有明顯的感覺，是偏軟(我喜歡的口感)，但是也沒有讓我太驚豔。
+                                不過這次真的吃到好幾次這種濕潤、又粒粒分明的口感，終於體驗到日本米真的很好吃！(但也有吃到一般般的飯) 那個第三張照片裡的舒芙蕾起司蛋糕(￥298未稅)，也非常好吃！咖啡的話，便利商店或是超市的罐裝拿鐵，沒有一個是好喝的。
+                            </p>
+                            <!-- 插入一個清除浮動的元素 -->
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 最下層：底部 footer -->
+        <footer>
+            <div class="container" style="max-width: 85%;">
+                <div class="row">
+                    <div class="col-12 my-auto copyright">
+                        <p> Copyright © 2024 Iffy's Life </p>
+                        <p> iffyslife@gmail.com </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+</body>
+
+</html>

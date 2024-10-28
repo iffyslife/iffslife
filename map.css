@@ -1,0 +1,46 @@
+/* 設置地圖容器的尺寸 */
+.blog_map {
+    height: 70vh;
+    width: 95%;
+    box-sizing: border-box;
+    padding: 0;
+    position: relative;
+    background-color: antiquewhite;
+}
+
+.city_map {
+    width: 100%; /* 調整地圖的寬度 */
+    height: 30vh; /* 設置地圖的高度 */
+    margin: auto; /* 水平置中 */
+    border: 2px solid #5f5f5f !important; /* 添加5px的實線邊框，顏色為深灰色 */
+    border-radius: 10px; /* 讓邊角圓潤 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加陰影效果 */
+}
+
+/* 重置頁面樣式 */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 1180px) {
+    #map {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .blog_map {
+        height: 50vh;
+        width: 95%;
+    }
+
+    /* 隱藏 Google 地圖在手機裝置 (寬度小於576px) */
+    #2024_Hokkaidomap {
+        height: 300px !important;  /* 手機上較小的高度 */
+    }
+
+}
+
+

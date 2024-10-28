@@ -1,0 +1,151 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1; /* 主內容區塊，將撐開頁面 */
+}
+
+/* 導覽列背景顏色 */
+.container-fluid {
+    background-color: #FEFEFE;
+    height: 100px;  
+}
+
+/* 導覽列樣式設定 */
+.navbar {
+    position: fixed;  /* 固定在上方，不會隨卷軸移動 (圖片上半被覆蓋) */
+    width: 90%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 100;  /* 移到最上層 (數值越高越上層) */
+    opacity: 0.95; /* 透明度(會包含下拉選單) */
+}
+
+/* Iffy's Life  logo 字型樣式  */
+.navbar-brand {
+    color: #131212  !important;
+    font-size: 30px;
+    font-family: 'Architects Daughter';
+    text-shadow: 1px 2px 3px rgb(194, 188, 188);
+    margin-left: 20px;
+}
+
+/* 小尺寸螢幕下拉選單區塊樣式 */
+#linkbar.collapse {
+    border-radius: 20px;
+  }
+
+/* RWD滑鼠按下時，顯示下拉選單選單 */
+.nav-item:hover .dropdown-menu {
+    display: block;    
+}  
+
+/* 導覽列文字區塊樣式含RWD下拉選單 */
+.nav-item {
+    font-family: 'Architects Daughter';
+    margin: 2px;    /* 留白2px*/
+    padding: 23px; /* 留白23px,背景色會被填入*/
+    background-color:#FEFEFE;
+    }
+
+/* 導覽列下拉選單容器設定，不要有任何背景和框線 */
+.dropdown-menu {
+    background: none; 
+    border: none;
+    box-shadow: none;
+}
+
+/* 導覽列下拉選單文字樣式 */
+.dropdown-item {
+    font-family: 'Architects Daughter';
+    font-size: 16px;
+    text-align: center;
+    background-color:#FEFEFE;
+    position: relative;    /* 下拉選單對齊樣式，沒有設定會跑到最左邊 */
+    margin: auto;
+    transition: color 0.3s ease; 
+}
+
+.dropdown-item:hover {
+    color: #131212 !important;
+    background-color:#FEFEFE;
+}
+
+li a {
+    color: #131212 !important;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    position: relative; /* 使伪元素相对于链接进行定位 */
+}
+
+/* 滑鼠移到超連結時文字設定 讓底線有由左至右出現的效果 */
+li a::before {
+    content: ''; /* 必须有内容为空的伪元素 */
+    position: absolute; /* 使伪元素绝对定位 */
+    width: 0; /* 初始底线宽度为0 */
+    height: 2px; /* 底线的高度 */
+    background-color: transparent; /* 底线颜色 */
+    bottom: 0; /* 使底线位于链接的底部 */
+    left: 0; /* 初始位置在左侧 */
+    transition: width 0.3s ease; /* 宽度变化的过渡效果，0.3秒的持续时间，以"ease"方式平滑过渡 */
+  }
+
+li a:hover::before {
+    border-bottom: 2px solid #131212;
+    width: 100%; /* 当鼠标悬停时，底线宽度变为链接宽度，即从左到右扩展 */
+}
+
+li a:hover {
+    font-style: italic;
+}
+
+/* 手機板下拉選單按鈕樣式 */
+.navbar-toggler {
+    background-color:#FEFEFE;
+    margin-right: 20px;
+    line-height:normal;
+}
+
+/* footer 樣式設定 */
+footer {
+    width: 100%;
+    color: #131212;
+    font-size: 12px;
+    background-color:rgba(241, 235, 248, 0.8);  
+    padding: 10px; 
+    opacity: 0.95; /* 透明度 */ 
+ }
+
+ .container {
+    max-width: 90%; /* 使容器寬度為 100% */
+    padding: 0; /* 移除內邊距 */
+}
+
+ .copyright {
+    display: flex; /* 使用 Flex 布局 */
+    flex-direction: column; /* 讓項目垂直排列 */
+    align-items: flex-end; /* 將內容對齊到右邊 */
+    justify-content: center; /* 使內容在垂直方向上居中對齊 */
+}
+
+.copyright p {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+ 
+@media screen and (max-width: 1600px) {
+    .navbar {
+        width: 100%;
+    }
+    .container {
+        max-width: 100%; /* 使容器寬度為 100% */
+    }
+}

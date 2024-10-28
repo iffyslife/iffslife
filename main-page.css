@@ -1,0 +1,288 @@
+.container-fluid-main{
+    margin: 150px;
+    width:90%;
+}
+
+.justify-content-center{
+    width:90%;
+    margin: 0 auto;
+}
+
+.fixed-left, .main-content {
+    padding-right:30px;
+}
+
+.my-logo{
+    margin-right:10px;
+    border-radius: 50%;
+}
+
+.Rtopic{
+    font-size: 28px;
+    font-family: 'Architects Daughter';
+    text-shadow: 1px 2px 3px rgb(194, 188, 188);
+}
+
+.Trinfo{
+    margin-left:50px;
+    margin-top:10px;  
+}
+
+.Trinfo a {
+    font-size: 20px;     /* 設定文字大小為20px */
+    line-height: 2;    /* 設定行高為1.5倍 */
+}
+
+/* 滑鼠移到超連結時文字設定 讓底線有由左至右出現的效果 */
+.Trinfo a::before {
+    content: ''; /* 必须有内容为空的伪元素 */
+    position: absolute; /* 使伪元素绝对定位 */
+    width: 0; /* 初始底线宽度为0 */
+    height: 2px; /* 底线的高度 */
+    background-color: transparent; /* 底线颜色 */
+    bottom: 0; /* 使底线位于链接的底部 */
+    left: 0; /* 初始位置在左侧 */
+    transition: width 0.3s ease; /* 宽度变化的过渡效果，0.3秒的持续时间，以"ease"方式平滑过渡 */
+  }
+
+.Trinfo a:hover::before {
+    border-bottom: 2px solid #131212;
+    width: 50%; /* 当鼠标悬停时，底线宽度变为链接宽度，即从左到右扩展 */
+}
+
+.Trinfo a:hover {
+    font-style: italic;
+}
+
+#hotel,
+#place1,
+#place2,
+#place3,
+#place4,
+#place5,
+#place6,
+#place7 {
+  scroll-margin-top: 120px; /* 跳轉到該區塊距離頂部的哪一個位置 */
+}
+
+/* 右邊主欄位 */
+.blog {
+    margin: 20px 50px;
+}
+
+.blog .post {
+    margin-bottom: 20px;
+}
+.blog .post-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+.blog .post-date {
+    color: #6c757d;
+    font-size: 14px;
+}
+.blog .post-content {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* 住宿資訊 */
+.post-storeinfo {
+    border: 2px solid #d3d3d3; /* 淺灰色邊框 */
+    border-radius: 10px; /* 圓角 */
+    padding: 15px; /* 內邊距 */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* 陰影增加立體感 */
+    background-color: #fff; /* 背景色白色 */
+}
+ul.info {
+    margin-bottom: 0; /* 覆蓋 margin-bottom 的預設設定 */
+}
+
+.current-page{
+    color:#7f08e0;
+    text-shadow: 1px 2px 3px rgb(194, 188, 188);
+}
+
+.post-content {
+    word-wrap: break-word; /* 確保文章內容自動換行 */
+    text-align: justify;  /* 分散對齊 */
+    white-space: normal;
+}
+
+.post-color{
+    color:#6c049c;
+    font-weight: bold;
+}
+
+.website {
+    color:#6920f0;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.post-content a {
+    color:#f08f20;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* 幻燈片設置 */
+.post .carousel-inner img {
+    width: 100%;  /* 圖片寬度設為父元素的 100% */
+    height: auto; /* 自動調整高度，保持圖片比例 */
+    object-fit: cover; /* 保持圖片比例，避免拉伸 */
+}
+.post .carousel {
+    width: 100%;
+}
+
+/* 縮圖導航 */
+.thumbnail {
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.thumbnail:hover {
+    border: 2px solid #007bff;
+}
+
+.thumbnail.active {
+    border: 2px solid #007bff;
+}
+
+/* 文章內照片浮動設置 */
+.float-left {
+    float: left;
+    margin: 0 25px 15px 0px;
+    width: 400px; /* 控制幻燈片區域寬度 */
+}
+
+.float-right {
+    float: right;
+    margin: 0 0px 15px 20px;
+    width: 400px; /* 控制幻燈片區域寬度 */
+}
+
+.slider img {
+    width: 100%;  /* 確保圖片自適應容器 */
+    height: auto;
+}
+
+/* 包含圖片和信息區塊的容器設置為 flexbox */
+.photo-storeinfo {
+    display: flex;
+    justify-content: space-evenly; /* 將空白均分在元素外圍和元素間 */
+    align-items: flex-start; /* 讓他們的頂部對齊 */
+    flex-wrap: wrap; /* 當寬度不足時，讓內容自動換行 */
+    margin-bottom: 20px; /* 與下方內容留白 */
+}
+
+/* 調整含圖片的區域 */
+.slider-info {
+    width: 60%; /* 控制幻燈片區域寬度 */
+    box-sizing: border-box; /* 保持內邊距與外邊距不影響寬度 */
+}
+
+.slider-info img {
+    width: 100%; /* 讓圖片自適應容器的寬度 */
+    height: auto; /* 自動調整高度以保持比例 */
+    aspect-ratio: 16 / 9; /* 確保比例為 16:9 (800px x 450px) */
+}
+
+/* 調整 post-storeinfo 區域 */
+.post-storeinfo {
+    width: 35%; /* 調整 post-info 容器寬度 */
+    box-sizing: border-box; /* 保持內邊距與外邊距不影響寬度 */
+}
+
+/* 清除浮動的樣式 */
+.clearfix {
+    clear: both;
+}
+
+/* 上下頁按鈕樣式 */
+.custom-btn {
+    font-family: 'Architects Daughter';
+    border: 1px solid #ccc;  /* 灰色邊框 */
+    color: #333;             /* 深色文字 */
+    background-color: transparent;  /* 透明背景 */
+    padding: 8px 16px;       /* 增加內間距 */
+    border-radius: 5px;      /* 圓角邊框 */
+    text-decoration: none;   /* 去掉默認鏈接下劃線 */
+    transition: background-color 0.3s ease;  /* 添加過渡效果 */
+}
+
+.custom-btn:hover {
+    background-color: #d7c7f5;  /* 懸停時背景變成淺灰色 */
+}
+
+@media screen and (max-width: 1600px) {
+    .container-fluid-main{
+        width:100%;
+    }
+    .justify-content-center{
+        width:100%;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .container-fluid-main{
+        margin: 100px 20px 0px 10px;
+    }
+    .Rtopic{
+        font-size: 25px;
+    }
+    .Trinfo{
+        margin-left:10px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .container-fluid-main{
+        margin: 0px;
+        display: flex;
+        justify-content: center; /* 水平置中 */
+    }
+    .Rtopic{
+        font-size: 26px;
+    }
+    .Trinfo{
+        margin-left:35px;
+    }
+    .blog {
+        margin: 20px 10px 20px 15px;
+    }
+    .blog .post {
+        margin-bottom: 0px;
+    }
+
+    .float-left {
+        float: none;  /* 取消浮動 */
+        margin: 0 auto 15px auto;  /* 上下居中對齊 */
+        width: 100%;  /* 幻燈片寬度設為100% */
+    }
+}
+
+/* 浮動圖片與旅館資訊響應式設置 */
+@media (max-width: 767px) { /* 針對手機直式模式 */
+    .photo-storeinfo {
+        flex-direction: column; /* 垂直排列內容 */
+        align-items: center; /* 使內容居中 */
+    }
+
+    .slider-info {
+        width: 100%; /* 滿寬度 */
+        margin: 0; /* 移除右邊距 */
+    }
+
+    .post-storeinfo {
+        width: 100%; /* 滿寬度 */
+        margin-top: 20px; /* 添加頂部間距以區分內容 */
+    }
+}
+
+@media (max-width: 576px) {
+    .container-fluid-main{
+        margin: 30px 10px !important;
+    }
+}

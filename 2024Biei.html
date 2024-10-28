@@ -1,0 +1,286 @@
+<!DOCTYPE html> <!-- 文件型態宣告(固定) -->
+<html lang="en">
+
+<!-- head:網頁的額外資訊，不在主畫面內 -->
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- 控制裝置縮放維持在一倍-->
+    <meta charset="utf-8" /> <!-- 網頁編碼是utf-8(萬國碼)-->
+    <!-- 設定網頁的視窗大小和縮放比例 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 固定手機螢幕為直式閱讀 -->
+    <meta name="screen-orientation" content="portrait"> <!-- 強制屏幕方向為直式 -->
+    <meta name="x5-orientation" content="portrait">  <!-- 針對某些手機瀏覽器（如 QQ 瀏覽器）的設定，強制使用直式顯示 -->
+    <meta name="x5-fullscreen" content="true">   <!-- 這些標籤設定允許全螢幕模式運行 -->
+    <meta name="full-screen" content="yes">  <!-- 這些標籤設定允許全螢幕模式運行 -->
+    
+    <!-- 網頁標籤icon & 名稱-->
+    <link rel="icon" type="image/jpg" href="img_2024Hokkaido/iffyslife_logo.jpg">
+    <title> 2024 美瑛 </title>
+    
+    <!-- Boostrap 導入程式 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!-- 連結Google提供的字體-->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Architects Daughter|Klee One" />
+                                                             <!-- 標題   |中文字型 -->
+
+    <!-- 連結自設的CSS樣式表-->
+    <link rel="stylesheet" type="text/css" href="navbar-footer.css" /> <!--導覽列樣式-->
+    <link rel="stylesheet" type="text/css" href="page-title-image.css" />  <!--橫幅圖片&文字樣式-->
+    <link rel="stylesheet" type="text/css" href="map.css" /> <!--地圖樣式-->
+    <link rel="stylesheet" type="text/css" href="main-page.css" />  <!--主內容樣式-->
+
+    <!-- 連結javascript-->
+    <script type="module" src="2024_Bieimap.js"></script>
+
+    <!-- 引入 Google Maps JavaScript API -->
+    <script>
+        (g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })({
+            key: "AIzaSyAqHx3BG0l9jpwkeMCPco-nMPuPr1bgkwI",
+            v: "weekly",
+            // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+            // Add other bootstrap parameters as needed, using camel case.
+        });
+    </script>
+
+    <!-- 文章內圖片幻燈片設置 -->
+        <!-- 引入 Slick 的 CSS 文件 -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css"/>
+        
+        <!-- 引入 jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+        <!-- 引入 Slick 的 JavaScript 文件 -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+
+        <!-- 連結javascript-->
+        <script type="module" src="slick.min.js"></script>
+</head>
+
+<!-- body:網頁內文 -->
+
+<body>
+    <!-- 第一區塊：導覽列 -->
+    <div id="navbar"></div>
+    <script>
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            })
+            .catch(error => console.log('Error loading navbar:', error));
+    </script>
+
+    <!-- 第二區塊：網頁上方圖片 + 主標題-->
+    <div class="travel"> 
+        <div class="top-picture">
+            <img src="img_2024Hokkaido/819_0.jpg" alt="Banner" class="banner">
+        </div>
+
+        <div class="page-title-wrapper-over-image">
+            <h1 class="page-title">2024 <span class="chinese">美瑛 BIEI</span></h1>
+            <h3 class="sub-text">2024/8/19</h3>
+        </div>
+
+    <!-- 第三區塊：主內容-二欄位 -->
+    <div class="container-fluid-main"> <!-- fluid: 水流樣式，for RWD -->
+        <div class="row justify-content-center"> <!-- 水平置中 (col少的份數變成左右空白) -->
+            <!-- 左邊欄位 -->
+            <div class="col-12 col-lg-3 fixed-left"> <!-- col-2(數字) 決定欄寬，total12份 -->
+                <!-- 側邊導覽列-->
+                <div class="page-guiline">
+                    <div class="Rtopic">
+                        <img src="img_2024Hokkaido/travel_logo.jpg" width="50" height="50" class="my-logo" />
+                        <span class="chinese">行程 </span> Travel Itinerary
+                    </div>
+                    <ul class="Trinfo">
+                        <a class="page-link chinese" href="2024Sapporo.html">Day 1-2 札幌</a>
+                        <a class="page-link chinese" href="2024Otaru.html">Day 3 小樽</a>
+                        <a class="page-link chinese" href="2024Asahikawa.html">Day 4 小樽-旭川</a>
+                        <a class="page-link chinese" href="2024Asahidake.html">Day 5 旭岳</a>
+                        <a class="page-link chinese current-page" href="2024Biei.html">Day 6 美瑛-札幌</a>
+                        <a class="page-link chinese" href="2024Shikotsuko.html">Day 7 札幌-伊達</a>
+                        <a class="page-link chinese" href="2024Noboribetsu.html">Day 8 有珠山-登別</a>
+                        <a class="page-link chinese" href="2024Noboribetsu2.html">Day 9 登別-洞爺湖</a>
+                        <a class="page-link chinese" href="2024Toya.html">Day 10 洞爺湖</a>
+                        <a class="page-link chinese" href="2024Toya2.html">Day 11 洞爺湖-函館</a>
+                        <a class="page-link chinese" href="2024Hakodate.html">Day 12-13 函館</a>
+                        <br>
+                        <a class="page-link chinese" href="2024Konan.html">函館 柯南集章</a>
+                        <a class="page-link chinese" href="2024Others.html">旅行二三事</a>
+                        <a class="page-link chinese" href="2024Foods.html">意外的美食</a>
+                    </ul>
+                </div>
+                <!--The div element for the map -->
+                <div class="city_map" id="2024_Bieimap"></div>
+            </div>
+            <!-- 右邊主欄位 -->
+            <div class="col-12 col-lg-9 main-content"> <!-- 文字靠左(可自行設定)-->
+                <div class="blog">
+                    <div class="post" id="place1">
+                        <h2 class="post-title">赤羽之丘 & 亞斗夢之丘</h2>
+                        <p class="post-date">2024年8月19日</p>
+                        <div class="float-left slider">
+                            <div><img src="img_2024Hokkaido/819/819_11.jpg" alt="Photo 赤羽之丘_1"></div>
+                            <div><img src="img_2024Hokkaido/819/819_12.jpg" alt="Photo 赤羽之丘_2"></div>
+                            <div><img src="img_2024Hokkaido/819/819_13.jpg" alt="Photo 赤羽之丘_3"></div>
+                            <div><img src="img_2024Hokkaido/819/819_14.jpg" alt="Photo 赤羽之丘_4"></div>
+                            <div><img src="img_2024Hokkaido/819/819_15.jpg" alt="Photo 亞斗夢之丘_1"></div>
+                            <div><img src="img_2024Hokkaido/819/819_16.jpg" alt="Photo 亞斗夢之丘_2"></div>
+                            <div><img src="img_2024Hokkaido/819/819_17.jpg" alt="Photo 亞斗夢之丘_3"></div>
+                        </div>
+                        <p class="post-content">
+                            今天沒有特別安排什麼行程，就在美瑛這邊走走逛逛，從<a href="2024Asahidake.html#hotel" target="_blank">湯元湧駒莊</a>退房後，
+                            先去了<a href="https://maps.app.goo.gl/ToEN6trcoRmuE6NS6" target="_blank">赤羽之丘</a>，原以為是路邊的一個景點，
+                            結果導航要我們彎上一個超小的山路，彎曲開了一陣之後，豁然開朗，幾顆大樹就出現在視野裡了，附近都是農田，感覺開在田間小路上，
+                            找個稍微大一點的叉路邊停車下來拍照，完全沒有遊客，感覺不是個觀光景點啊~~~ 但美瑛好像有好幾個像這樣的地方，那個
+                            <a href="https://maps.app.goo.gl/GisNbPNKxPBxuUaY9" target="_blank">Ken & Mery 之樹</a>、
+                            <a href="https://maps.app.goo.gl/Me9SqU9rWmjSYxCF6" target="_blank">親子之樹</a>好像都是類似的。
+                        </p>
+                        <p class="post-content">
+                            接下來決定去<a href="https://maps.app.goo.gl/1USGirvb9Sqj9p7N7" target="_blank">亞斗夢之丘</a>看看，這裡就是一個有規劃的花園農場，不需要門票，
+                            有停車場、賣店等但是腹地不大，我們只往上走了一小段，拍個照之後就離開了，沒有停留太久。一方面是天氣很熱的關係，實在太曬了！還有走五步路就一直唉唉叫、
+                            生氣的允寶，只好讓他去賣店買東西，轉移注意力。這附近也好多XXX之丘，去年去了四季彩之丘，也是遇到太陽很大的一天，被曬昏，人多得像菜市場一樣，還要門票，沒有很喜歡。
+                            比較喜歡富良野農場，比較精緻，規劃得比較好。
+                        </p>
+                        <!-- 插入一個清除浮動的元素 -->
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="post" id="place2">
+                        <h2 class="post-title">美瑛選果 本店</h2>
+                        <p class="post-date">2024年8月19日</p>
+                        <div class="float-left slider">
+                            <div><img src="img_2024Hokkaido/819/819_21.jpg" alt="Photo 美瑛選果_1"></div>
+                            <div><img src="img_2024Hokkaido/819/819_22.jpg" alt="Photo 美瑛選果_2"></div>
+                            <div><img src="img_2024Hokkaido/819/819_23.jpg" alt="Photo 美瑛選果_3"></div>
+                            <div><img src="img_2024Hokkaido/819/819_24.jpg" alt="Photo 美瑛選果_4"></div>
+                            <div><img src="img_2024Hokkaido/819/819_25.jpg" alt="Photo 美瑛選果_5"></div>
+                        </div>
+                        <p class="post-content">
+                            下一個行程是本來就有預計一定要來的，
+                            <a href="https://maps.app.goo.gl/r79FaEkAXfGMwaMw6" target="_blank">美瑛選果 本店</a>，它在新千歲機場的的分店，賣的玉米麵包非常熱門，要排隊1個多小時才買得到！
+                            這裡的甜點看起來非常好吃的樣子，一定要來吃看看。買了紅豆天使蛋糕捲、奶酪、允寶必點冰淇淋、央央則是選了一個醃漬番茄，央央吃了之後一直說那個番茄非常好吃，很想要再買一份，
+                            但是我覺得有點小貴！一小瓶要400円，就沒給他買(我這時還沒發現北海道番茄有多好吃)。坐在門口吃完點心之後，到隔壁的賣店逛逛，裡面好多有趣的產品啊！最後買了一盒綜合番茄、
+                            速食米飯(加熱水等幾分鐘之後就可以吃了)、Haskap醬汁(Haskap是北海道特產的水果，長得像長橢圓的藍莓)、爆米花。晚上回札幌後再好友家洗了番茄一起吃，
+                            我整個對北海道番茄大驚豔！不管是哪一種都超甜、超好吃的！而且皮都很薄、又多汁！
+                            回台灣之後央央把那個果醬(比較稀，會流動)做成果汁加蜂蜜喝，他說很好喝。爆米花就是一般的爆米花，要自己調味，速食飯的部分還沒吃，不知味道會如何。
+                        </p>
+                        <!-- 插入一個清除浮動的元素 -->
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="post" id="place3">
+                        <h2 class="post-title">BETWEEN THE BREAD 漢堡</h2>
+                        <p class="post-date">2024年8月19日</p>
+                        <div class="float-left slider">
+                            <div><img src="img_2024Hokkaido/819/819_31.jpg" alt="Photo 漢堡_1"></div>
+                            <div><img src="img_2024Hokkaido/819/819_32.jpg" alt="Photo 漢堡_2"></div>
+                            <div><img src="img_2024Hokkaido/819/819_33.jpg" alt="Photo 漢堡_3"></div>
+                            <div><img src="img_2024Hokkaido/819/819_34.jpg" alt="Photo 漢堡_4"></div>
+                            <div><img src="img_2024Hokkaido/819/819_35.jpg" alt="Photo 漢堡_5"></div>
+                            <div><img src="img_2024Hokkaido/819/819_36.jpg" alt="Photo 漢堡_6"></div>
+                            <div><img src="img_2024Hokkaido/819/819_37.jpg" alt="Photo 漢堡_7"></div>
+                            <div><img src="img_2024Hokkaido/819/819_38.jpg" alt="Photo 漢堡_8"></div>
+                            <div><img src="img_2024Hokkaido/819/819_39.jpg" alt="Photo 漢堡_9"></div>
+                            <div><img src="img_2024Hokkaido/819/819_40.jpg" alt="Photo 漢堡_10"></div>
+                        </div>
+                        <p class="post-content">
+                            接下來又到了午餐時間，在google map找了一下出發前標記的地點之後，決定去吃漢堡！雖然總覺得到日本應該要吃日式的廖了，拉麵、壽司、咖哩飯那些，
+                            漢堡跟日本連不在一起啊！但是美瑛這邊在查資料時，一直出現一家很有名的漢堡，就是在道の駅 びえい｢白金ビルケ｣的
+                            <a href="http://betweenthebread.jp/" target="_blank">BETWEEN THE BREAD</a>，離青池超級近，但我們這次沒有要去青池，去年有去過了，而且拍了很美的照片，
+                            這次就不過去啦！只來吃漢堡。果然非常熱門，排隊等點餐就大概排了半小時，之後又等了好一陣子才拿到漢堡，不過漢堡好大、好好吃啊~~~菜單上全部都是牛肉漢堡，
+                            搭配不同的配料，像是太陽蛋、起司、酪梨、雙份牛肉等，我們點了一份BTB SET (BTB BURGER & FRENCH FRIES & DRINK) ￥1880，一份酪梨漢堡加套餐￥2290，
+                            一份DOUBLE BURGER，￥2290，和一杯可爾必思￥300，含稅總共￥7041。還蠻不便宜的，不過漢堡真的好吃，牛肉漢堡排很厚很大，吃得很飽 (網站上的價格是漲價前)。
+                            後來在洞爺湖也吃了一家評價不錯的漢堡店<a href="2024Toya.html#place3" target="_blank">Hydune</a>，價格大概是這家的一半，也是很美味，
+                            比較特別的是Hydune的漢堡麵包是比較像法式圓麵包一點，但又不太一樣 (我比較喜歡，總之不是日式軟甜麵糰)，蔬菜部分是用高麗菜絲非常特別。
+                        </p>
+                        <p class="post-content">
+                            我覺得這裡最棒的是，旁邊有很大的綠草地可以玩，有個很破爛的桌球桌還有拍子跟球，但也消耗了央央跟允寶很多時間，另一邊還有超級無敵難走的繩索挑戰，
+                            還有一區有像是丟沙包進洞的遊戲設置，總之等待的時間小孩就在這邊一直玩，不會無聊。旁邊的休息站販賣部，不是很大，裡面走道很小，但人超多，我只有進去上廁所，
+                            結帳隊伍排好長，原本想逛一下，但實在太擠了，就放棄了。
+                        </p>
+                        <!-- 插入一個清除浮動的元素 -->
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="post" id="place4">
+                        <h2 class="post-title">江別 蔦屋書店</h2>
+                        <p class="post-date">2024年8月19日</p>
+                        <div class="float-left slider">
+                            <div><img src="img_2024Hokkaido/819/819_41.jpg" alt="Photo 蔦屋書店_1"></div>
+                            <div><img src="img_2024Hokkaido/819/819_42.jpg" alt="Photo 蔦屋書店_2"></div>
+                            <div><img src="img_2024Hokkaido/819/819_43.jpg" alt="Photo 蔦屋書店_3"></div>
+                            <div><img src="img_2024Hokkaido/819/819_44.jpg" alt="Photo 蔦屋書店_4"></div>
+                        </div>
+                        <p class="post-content">
+                            吃飽喝足後便往札幌前進啦，跟好友約了晚餐要去吃串燒，在札幌站前的一棟大樓裡。但在抵達札幌之前先彎去了
+                            <a href="https://store-tsutaya.tsite.jp/store/detail?storeId=0271" target="_blank">"江別"的蔦屋書店</a>，也是看到FB北海道社團團友分享的點，
+                            新竹就有一家蔦屋書店，在一棟地區百貨的1樓&B1，我非常的喜歡，書店整體的設計感、陳列的書籍，還有好吃的茶屋。但出國我是完全沒有想要去"書店"的，畢竟都是日文書也看不懂。
+                            但是看到團友分享的照片，哇！北海道的蔦屋書店也太美，而且就在我們回札幌的路上，那就過去看看吧！江別店是以「花園城市慢活」為概念，
+                            分為「生活」、「智慧」、「美食」三個主題。不愧是地廣人稀的北海道，書店是五棟建築連接在一起，
+                            很像我們的誠品百貨，但是不是一棟大樓，是五棟大大的房子，挑高的室內空間，除了書店之外也有生活用品、百貨服飾、咖啡廳、餐廳、伴手禮等等，超級好逛，
+                            森林系咖啡廳好吸引我，可惜我們時間不足，只能拍照而已。看到一個我覺得超級超級可愛，但是買回家會捨不得拿出來用，也不知何時可以拿出來用的和服小皿，一個價格大概是5000日幣，
+                            我站在櫃前看了好久，最後忍住沒有買~~~ 後來看到一個賣義式冰淇淋的櫃位，想說吃了那麼多牛奶霜淇淋，來試試義式冰淇淋，我選了一直很想嘗試的開心果口味，允寶選巧克力，
+                            央央選了一個青池顏色的，是檸檬什麼的口味，都很好吃，只是溶化非常快速，要快點吃。
+                        </p>
+                        <!-- 插入一個清除浮動的元素 -->
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="post" id="place5">
+                        <h2 class="post-title">札幌 串鳥 站前店</h2>
+                        <p class="post-date">2024年8月19日</p>
+                        <div class="float-left slider">
+                            <div><img src="img_2024Hokkaido/819/819_51.jpg" alt="Photo 串鳥_1"></div>
+                            <div><img src="img_2024Hokkaido/819/819_52.jpg" alt="Photo 串鳥_2"></div>
+                            <div><img src="img_2024Hokkaido/819/819_53.jpg" alt="Photo 串鳥_3"></div>
+                            <div><img src="img_2024Hokkaido/819/819_54.jpg" alt="Photo 串鳥_4"></div>
+                            <div><img src="img_2024Hokkaido/819/819_55.jpg" alt="Photo 串鳥_5"></div>
+                            <div><img src="img_2024Hokkaido/819/819_56.jpg" alt="Photo 串鳥_6"></div>
+                            <div><img src="img_2024Hokkaido/819/819_57.jpg" alt="Photo 串鳥_7"></div>
+                            <div><img src="img_2024Hokkaido/819/819_58.jpg" alt="Photo 串鳥_8"></div>
+                        </div>
+                        <p class="post-content">
+                            令我非常期待的晚餐，我們只有在第一次去日本(東京)時，去過一家熱門的雞肉串燒店，當時看不懂日文，英文也很爛，也沒有手機可以翻譯，而點到一串"蔥"。
+                            以為菜單上那一區應該都是雞部位相關的串燒，LeeK這個單字好眼熟，但是想不出來是什麼，就給他點下去，結果上來一串蔥，真是讓我跟阿光都大傻眼，
+                            看到蔥時才恍然想起，啊！對啦！Leek就是"蔥"，鬧大笑話。之後再也沒想過要串燒店。
+                            所以這次好友要招待我們享用好吃的串燒，真的非常令我期待！我們去的是<a href="https://kushidori.com/" target="_blank">串鳥 札幌駅前店</a>，
+                            到了之後，好友已經先點了一輪了，我們就只負責吃而已！來什麼吃什麼！央央和允寶也吃得超開心。
+                            現在點餐很方便，掃桌上的QR code就可以，好友說有圖片可以看，但每次有好友在我就整個超放鬆(空)，所以不是很知道到底是怎樣，哈哈！
+                            只記得這裡的雞湯是免費的，跟新橋燒肉一樣，來一壺自己倒，喝完再請服務員換新的。整個吃得超滿足~~~~ 感謝好友請客。
+                        <!-- 插入一個清除浮動的元素 -->
+                        <div class="clearfix"></div>
+                    </div>
+                    <!-- Previous Day and Next Day Buttons -->
+                    <div class="container text-center my-5">
+                        <div class="row">
+                            <div class="col">
+                                <a href="2024Asahidake.html" class="btn custom-btn">Previous Day</a>
+                            </div>
+                            <div class="col">
+                                <a href="2024Shikotsuko.html" class="btn custom-btn">Next Day</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 最下層：底部 footer -->
+    <footer>
+        <div class="container" style="max-width: 85%;">
+            <div class="row">
+                <div class="col-12 my-auto copyright">
+                    <p> Copyright © 2024 Iffy's Life </p>
+                    <p> iffyslife@gmail.com </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
