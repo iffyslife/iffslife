@@ -1,18 +1,15 @@
 .container-fluid-main{
-    margin: 0 auto;
-    max-width:100%;
-    padding: 0 20px;
+    margin: 150px;
+    max-width:90%;
 }
 
 .justify-content-center{
-    max-width:100%;
+    max-width:90%;
     margin: 0 auto;
 }
 
 .fixed-left, .main-content {
-    padding-right: 15px;
-    padding-left: 15px;
-    overflow: hidden; /* 限制溢出內容 */
+    padding-right:30px;
 }
 
 .my-logo{
@@ -237,12 +234,6 @@ ul.info {
     }
     .Trinfo{
         margin-left:10px;
-    }
-}
-
-@media (max-width: 768px) {
-    .container-fluid-main {
-        padding: 0 10px; /* 手機模式下縮小內邊距 */
     }
 }
 
