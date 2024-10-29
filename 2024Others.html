@@ -40,62 +40,16 @@
 
 <body>
      <!-- 第一區塊：導覽列 -->
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <!-- Logo -->
-                <!-- <img src="img/iffyslife_logo.jpg" width="90" height="90" style="border-radius: 50%; margin-left: 15px;">  -->
+     <div id="navbar"></div>
 
-                <a class="navbar-brand" href="index.html">Iffy's Life</a>
-
-                <!-- 第一部分：手機版 -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#linkbar"
-                    aria-controls="linkbar" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span> <!-- 產生下拉選單按鈕 -->
-                </button>
-
-                <!-- 第二部分：電腦版 -->
-                <div class="collapse navbar-collapse" id="linkbar">
-
-                    <!-- 導覽列內容 -->
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">旅行 My Travel</a>
-                            <!-- 旅行 下拉式選單 -->
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="2024_Hokkaido.html">2024北海道</a>
-                                <a class="dropdown-item" href="2023_Hokkaido.html">2023北海道</a>
-                                <a class="dropdown-item" href="2020_Newzealand.html">2020紐西蘭</a>
-                                <a class="dropdown-item" href="2023_Taiwan.html">台灣</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">閱讀 My Reading</a>
-                            <!-- 閱讀 下拉式選單 -->
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="novel.html">小說</a>
-                                <a class="dropdown-item" href="finance.html">投資理財</a>
-                                <a class="dropdown-item" href="psychology.html">心理學</a>
-                                <a class="dropdown-item" href="books.html">其他</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">美食 My Food</a>
-                            <!-- 美食 下拉式選單 -->
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="cafe.html">咖啡</a>
-                                <a class="dropdown-item" href="brunch.html">早午餐</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="life.html">生活 My Life</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+     <script>
+         fetch('nav.html')
+             .then(response => response.text())
+             .then(data => {
+                 document.getElementById('navbar').innerHTML = data;
+             })
+             .catch(error => console.log('Error loading navbar:', error));
+     </script>
 
     <!-- 第二區塊：網頁上方圖片 + 主標題-->
     <div class="travel"> 
@@ -140,25 +94,7 @@
             </div>
             <!-- 右邊主欄位 -->
             <div class="col-12 col-lg-9 main-content"> <!-- 文字靠左(可自行設定)-->
-                <div class="blog" >
-                    <div class="post">
-                        <h2 class="post-title">探索札幌的美好一天</h2>
-                        <p class="post-date">2024年8月15日</p>
-                        <div class="post-image">
-                            <img src="img_2024Hokkaido/#.jpg" alt="札幌">
-                        </div>
-                        <p class="post-content">
-                            今天我們探索了札幌的一些美麗景點。首先，我們來到了札幌車站，這裡充滿了活力和繁忙的氣息。接著，我們參觀了著名的札幌啤酒博物館，了解了啤酒的製作過程。最後，我們在狸小路享用了美味的晚餐，這裡的街道上布滿了各式各樣的小店和餐廳。
-                        </p>
-                    </div>
-                    <div class="post">
-                        <h2 class="post-title">小樽的浪漫之旅</h2>
-                        <p class="post-date">2024年8月17日</p>
-                        <p class="post-content">
-                            小樽是一個充滿浪漫氛圍的城市。我們漫步在小樽運河旁，欣賞了古老的倉庫建築。接著，我們參觀了小樽音樂盒博物館，這裡展示了各種精美的音樂盒。我們還品嚐了當地的海鮮料理，這裡的新鮮生魚片令人難以忘懷。
-                        </p>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>
