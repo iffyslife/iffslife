@@ -65,6 +65,25 @@
   scroll-margin-top: 120px; /* 跳轉到該區塊距離頂部的哪一個位置 */
 }
 
+/* Vlog 樣式設定 */
+.vlogtitle {
+    font-family: 'Architects Daughter';
+    font-size: 20px;
+    margin: 5px;
+}
+
+.video-container {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.video-container h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+
 /* 右邊主欄位 */
 .blog {
     margin: 20px 50px;
@@ -216,14 +235,6 @@ ul.info {
     background-color: #d7c7f5;  /* 懸停時背景變成淺灰色 */
 }
 
-@media screen and (max-width: 1600px) {
-    .container-fluid-main{
-        width:100%;
-    }
-    .justify-content-center{
-        width:100%;
-    }
-}
 
 @media screen and (max-width: 1400px) {
     .container-fluid-main{
