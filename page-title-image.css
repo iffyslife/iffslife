@@ -119,11 +119,11 @@
         width: 100%; /* 保持圖片寬度100% */
         height: 416px; /* 固定高度不變 */
     }
-
     .page-title-wrapper-over-image {
-        top: 50%; 
+        position: absolute;
+        bottom: 0; /* 將底部貼齊圖片底部 */
         left: 50%; 
-        transform: translate(-50%, -50%);
+        transform: translateX(-50%); /* 水平居中 */
         clip-path: none; 
         width: 90%;
         max-width: none;
@@ -131,4 +131,19 @@
         padding: 10px;
         border-bottom: none;
     }
+    
 }
+
+/* 前一版 
+.page-title-wrapper-over-image {
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    clip-path: none; 
+    width: 90%;
+    max-width: none;
+    min-height: auto;
+    padding: 10px;
+    border-bottom: none;
+}
+    */
