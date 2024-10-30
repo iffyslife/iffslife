@@ -90,7 +90,7 @@
 /* 媒體查詢：針對iPad Air直式調整 */
 @media screen and (max-width: 855px) {
     .page-title-wrapper-over-image {
-        top: 28%; /* 調整位置以防重疊 */
+        top: 50%; /* 調整位置以防重疊 */
         left: 15%; /* 适度左移以避免与页面边缘过近 */
         transform: translateY(-50%); /* 保证垂直居中 */
         max-width: 80%; /* 根据屏幕大小调整宽度 */
@@ -121,7 +121,7 @@
     }
 
     .page-title-wrapper-over-image {
-        top: 35%; 
+        top: 50%; 
         left: 50%; 
         transform: translate(-50%, -50%);
         clip-path: none; 
