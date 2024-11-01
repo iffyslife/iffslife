@@ -1,3 +1,24 @@
+
+.notification-bar{
+    font-family: 'Architects Daughter';
+    font-size: 24px;
+    background-color: rgba(225, 232, 248, 0.8);
+    padding: 10px;
+    text-align: center;
+    width: 100%; /* 設定適當寬度，例如 80% */
+    margin: 0 auto; /* 水平置中 */
+    border-radius: 5px; /* 適當的圓角效果 */
+    
+}
+
+/* 手機裝置：在小螢幕上全寬顯示在上方 */
+@media (max-width: 992px) {
+    .notification-bar {
+        display:block;
+        width: 100%; /* 設置為 100% 寬度以適應手機螢幕 */
+    }
+}
+
 .container-fluid-main{
     margin: 150px;
     max-width:100%;

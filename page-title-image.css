@@ -84,7 +84,21 @@
     .top-picture img {
         width: 100%;
     }
+}
 
+@media (max-width: 900px) and (orientation: landscape) {
+    .page-title-wrapper-over-image {
+        position: absolute;
+        bottom: 0; /* 將下邊貼齊背景圖片底部 */
+        left: 50%;
+        transform: translateX(-50%); /* 水平居中 */
+        clip-path: none; 
+        width: 80%; /* 縮小寬度以適應橫式畫面 */
+        max-width: none;
+        min-height: auto;
+        padding: 10px;
+        border-bottom: none;
+    }
 }
 
 /* 媒體查詢：針對iPad Air直式調整 */
