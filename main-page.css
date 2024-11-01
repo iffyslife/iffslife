@@ -248,6 +248,38 @@ ul.info {
     }
 }
 
+/* 浮動圖片與旅館資訊響應式設置 */
+@media (max-width: 767px) { /* 針對手機直式模式 */
+    .photo-storeinfo {
+        flex-direction: column; /* 垂直排列內容 */
+        align-items: center; /* 使內容居中 */
+    }
+
+    .slider-info {
+        width: 100%; /* 滿寬度 */
+        margin: 0; /* 移除右邊距 */
+    }
+
+    .post-storeinfo {
+        width: 100%; /* 滿寬度 */
+        margin-top: 20px; /* 添加頂部間距以區分內容 */
+    }
+}
+
+
+/* 手機直式瀏覽時，不顯示 "img" */
+@media (max-width: 576px) and (orientation: portrait) {
+    .Rtopic img {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .container-fluid-main{
+        margin: 30px 10px !important;
+    }
+}
+
 @media screen and (max-width: 430px) {
     .container-fluid-main{
         margin: 0px;
@@ -271,29 +303,5 @@ ul.info {
         float: none;  /* 取消浮動 */
         margin: 0 auto 15px auto;  /* 上下居中對齊 */
         width: 100%;  /* 幻燈片寬度設為100% */
-    }
-}
-
-/* 浮動圖片與旅館資訊響應式設置 */
-@media (max-width: 767px) { /* 針對手機直式模式 */
-    .photo-storeinfo {
-        flex-direction: column; /* 垂直排列內容 */
-        align-items: center; /* 使內容居中 */
-    }
-
-    .slider-info {
-        width: 100%; /* 滿寬度 */
-        margin: 0; /* 移除右邊距 */
-    }
-
-    .post-storeinfo {
-        width: 100%; /* 滿寬度 */
-        margin-top: 20px; /* 添加頂部間距以區分內容 */
-    }
-}
-
-@media (max-width: 576px) {
-    .container-fluid-main{
-        margin: 30px 10px !important;
     }
 }
