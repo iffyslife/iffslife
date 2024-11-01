@@ -1,0 +1,47 @@
+/* 右邊主欄位 分頁導航標籤設置*/
+.blog-nav-link {
+    font-family: 'Architects Daughter';
+    background-color: transparent; /* 預設為透明背景 */
+    transition: background-color 0.3s; /* 過渡效果 */
+}
+
+.blog-nav-link.active {
+    background-color: #6028b9; /* 淡紫色，顯示為選中的分頁 */
+    color: white !important;
+    border-radius: 10px;
+    padding: 10px 15px; /* 上下 10px，左右 15px */
+}
+
+/* 分頁圖片設置*/
+.post-image {
+    text-align: center; /* 使圖片置中 */
+}
+
+.responsive-image {
+    width: 100%; /* 設定圖片寬度為 100% */
+    height: auto; /* 高度自動調整以維持比例 */
+    max-width: 800px; /* 設定最大寬度為 800px (可根據需要調整) */
+}
+
+.image-container {
+    display: flex; /* 使用 flex 排版 */
+    flex-wrap: wrap; /* 允許換行 */
+}
+
+/* 圖片並排設置*/
+.image-item {
+    flex: 1; /* 每個圖片項目佔據相同的寬度 */
+    margin: 10px; /* 圖片之間的間距 */
+}
+
+.image-item img {
+    width: 100%; /* 圖片寬度 100% */
+    height: auto; /* 高度自動調整，保持比例 */
+}
+
+/* 當螢幕寬度小於或等於 992px 時，圖片將堆疊顯示 */
+@media (max-width: 992px) {
+    .image-item {
+        flex: 100%; /* 每個圖片佔據整個行 */
+    }
+}

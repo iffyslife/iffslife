@@ -10,14 +10,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 固定手機螢幕為直式閱讀 -->
     <meta name="screen-orientation" content="portrait"> <!-- 強制屏幕方向為直式 -->
-    <meta name="x5-orientation" content="portrait">  <!-- 針對某些手機瀏覽器（如 QQ 瀏覽器）的設定，強制使用直式顯示 -->
-    <meta name="x5-fullscreen" content="true">   <!-- 這些標籤設定允許全螢幕模式運行 -->
-    <meta name="full-screen" content="yes">  <!-- 這些標籤設定允許全螢幕模式運行 -->
-    
+    <meta name="x5-orientation" content="portrait"> <!-- 針對某些手機瀏覽器（如 QQ 瀏覽器）的設定，強制使用直式顯示 -->
+    <meta name="x5-fullscreen" content="true"> <!-- 這些標籤設定允許全螢幕模式運行 -->
+    <meta name="full-screen" content="yes"> <!-- 這些標籤設定允許全螢幕模式運行 -->
+
     <!-- 網頁標籤icon & 名稱-->
     <link rel="icon" type="image/jpg" href="img_2024Hokkaido/iffyslife_logo.jpg">
     <title> 2024 旅行二三事 </title>
-    
+
     <!-- Boostrap 導入程式 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -26,33 +26,33 @@
         crossorigin="anonymous"></script>
 
     <!-- 連結Google提供的字體-->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Architects Daughter|Klee One" />
-                                                             <!-- 標題   |中文字型 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Architects Daughter|Klee One" />
+    <!-- 標題   |中文字型 -->
 
     <!-- 連結自設的CSS樣式表-->
     <link rel="stylesheet" type="text/css" href="navbar-footer.css" /> <!--導覽列樣式-->
-    <link rel="stylesheet" type="text/css" href="page-title-image.css" />  <!--橫幅圖片&文字樣式-->
-    <link rel="stylesheet" type="text/css" href="main-page.css" />  <!--主內容樣式-->
+    <link rel="stylesheet" type="text/css" href="page-title-image.css" /> <!--橫幅圖片&文字樣式-->
+    <link rel="stylesheet" type="text/css" href="main-page.css" /> <!--主內容樣式-->
+    <link rel="stylesheet" type="text/css" href="blog-nav.css" /> <!--分頁導航樣式-->
 </head>
 
 <!-- body:網頁內文 -->
 
 <body>
-     <!-- 第一區塊：導覽列 -->
-     <div id="navbar"></div>
+    <!-- 第一區塊：導覽列 -->
+    <div id="navbar"></div>
 
-     <script>
-         fetch('nav.html')
-             .then(response => response.text())
-             .then(data => {
-                 document.getElementById('navbar').innerHTML = data;
-             })
-             .catch(error => console.log('Error loading navbar:', error));
-     </script>
+    <script>
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            })
+            .catch(error => console.log('Error loading navbar:', error));
+    </script>
 
     <!-- 第二區塊：網頁上方圖片 + 主標題-->
-    <div class="travel"> 
+    <div class="travel">
         <div class="top-picture">
             <img src="img_2024Hokkaido/826_0.jpg" alt="Banner" class="banner">
         </div>
@@ -62,55 +62,309 @@
             <h3 class="sub-text">2024/8/14-26</h3>
         </div>
 
-    <!-- 第三區塊：主內容-二欄位 -->
-    <div class="container-fluid-main"> <!-- fluid: 水流樣式，for RWD -->
-        <div class="row justify-content-center"> <!-- 水平置中 (col少的份數變成左右空白) -->
-            <!-- 左邊欄位 -->
-            <div class="col-12 col-lg-3 fixed-left"> <!-- col-2(數字) 決定欄寬，total12份 -->
-                <!-- 側邊導覽列-->
-                <div class="page-guiline">
-                    <div class="Rtopic">
-                        <img src="img_2024Hokkaido/travel_logo.jpg" width="50" height="50" class="my-logo" />
-                        <span class="chinese">行程 </span> Travel Itinerary
+        <!-- 第三區塊：主內容-二欄位 -->
+        <div class="container-fluid-main"> <!-- fluid: 水流樣式，for RWD -->
+            <div class="row justify-content-center"> <!-- 水平置中 (col少的份數變成左右空白) -->
+                <!-- 左邊欄位 -->
+                <div class="col-12 col-lg-3 fixed-left"> <!-- col-2(數字) 決定欄寬，total12份 -->
+                    <!-- 側邊導覽列-->
+                    <div class="page-guiline">
+                        <div class="Rtopic">
+                            <img src="img_2024Hokkaido/travel_logo.jpg" width="50" height="50" class="my-logo" />
+                            <span class="chinese">行程 </span> Travel Itinerary
+                        </div>
+                        <ul class="Trinfo">
+                            <a class="page-link chinese" href="2024Sapporo.html">Day 1-2 札幌</a>
+                            <a class="page-link chinese" href="2024Otaru.html">Day 3 小樽</a>
+                            <a class="page-link chinese" href="2024Asahikawa.html">Day 4 小樽-旭川</a>
+                            <a class="page-link chinese" href="2024Asahidake.html">Day 5 旭岳</a>
+                            <a class="page-link chinese" href="2024Biei.html">Day 6 美瑛-札幌</a>
+                            <a class="page-link chinese" href="2024Shikotsuko.html">Day 7 札幌-伊達</a>
+                            <a class="page-link chinese" href="2024Noboribetsu.html">Day 8 有珠山-登別</a>
+                            <a class="page-link chinese" href="2024Noboribetsu2.html">Day 9 登別-洞爺湖</a>
+                            <a class="page-link chinese" href="2024Toya.html">Day 10 洞爺湖</a>
+                            <a class="page-link chinese" href="2024Toya2.html">Day 11 洞爺湖-函館</a>
+                            <a class="page-link chinese" href="2024Hakodate.html">Day 12-13 函館</a>
+                            <br>
+                            <a class="page-link chinese current-page" href="2024Others.html">旅行二三事</a>
+                            <a class="page-link chinese" href="2024Foods.html">意外的美食</a>
+                        </ul>
                     </div>
-                    <ul class="Trinfo">
-                        <a class="page-link chinese" href="2024Sapporo.html">Day 1-2 札幌</a>
-                        <a class="page-link chinese" href="2024Otaru.html">Day 3 小樽</a>
-                        <a class="page-link chinese" href="2024Asahikawa.html">Day 4 小樽-旭川</a>
-                        <a class="page-link chinese" href="2024Asahidake.html">Day 5 旭岳</a>
-                        <a class="page-link chinese" href="2024Biei.html">Day 6 美瑛-札幌</a>
-                        <a class="page-link chinese" href="2024Shikotsuko.html">Day 7 札幌-伊達</a>
-                        <a class="page-link chinese" href="2024Noboribetsu.html">Day 8 有珠山-登別</a>
-                        <a class="page-link chinese" href="2024Noboribetsu2.html">Day 9 登別-洞爺湖</a>
-                        <a class="page-link chinese" href="2024Toya.html">Day 10 洞爺湖</a>
-                        <a class="page-link chinese" href="2024Toya2.html">Day 11 洞爺湖-函館</a>
-                        <a class="page-link chinese" href="2024Hakodate.html">Day 12-13 函館</a>
-                        <br>
-                        <a class="page-link chinese current-page" href="2024Others.html">旅行二三事</a>
-                        <a class="page-link chinese" href="2024Foods.html">意外的美食</a>
+                </div>
+                <!-- 右邊主欄位 -->
+                <div class="col-12 col-lg-9 main-content"> <!-- 文字靠左(可自行設定)-->
+                    <!-- 分頁導航 -->
+                    <ul class="nav nav-tabs" id="blogTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="blog-nav-link active" id="sapporo-tab" data-bs-toggle="tab" href="#sapporo"
+                                role="tab" aria-controls="sapporo" aria-selected="true">關於行李</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="blog-nav-link" id="departure-tab" data-bs-toggle="tab" href="#departure"
+                                role="tab" aria-controls="departure" aria-selected="false">Departure 行李箱</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="blog-nav-link" id="onsen-tab" data-bs-toggle="tab" href="#onsen" role="tab"
+                                aria-controls="onsen" aria-selected="false">關於溫泉飯店</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="blog-nav-link" id="medicine-tab" data-bs-toggle="tab" href="#medicine" role="tab"
+                                aria-controls="medicine" aria-selected="false">心酸的藥妝採購</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="blog-nav-link" id="thoughts-tab" data-bs-toggle="tab" href="#thoughts" role="tab"
+                                aria-controls="thoughts" aria-selected="false">碎碎念</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="blog-nav-link" id="cost-tab" data-bs-toggle="tab" href="#cost" role="tab"
+                                aria-controls="cost" aria-selected="false">總費用</a>
+                        </li>
                     </ul>
-                </div>
-            </div>
-            <!-- 右邊主欄位 -->
-            <div class="col-12 col-lg-9 main-content"> <!-- 文字靠左(可自行設定)-->
-                <div class="blog" >
-                   
-                       
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- 最下層：底部 footer -->
-    <footer>
-        <div class="container" style="max-width: 85%;">
-            <div class="row">
-                <div class="col-12 my-auto copyright">
-                    <p> Copyright © 2024 Iffy's Life </p>
-                    <p> iffyslife@gmail.com </p>
-                </div>
-            </div>
-        </div>
-    </footer>
-</body>
 
+                    <!-- 分頁內容 -->
+                    <div class="tab-content" id="blogTabContent">
+                        <div class="tab-pane fade show active" id="sapporo" role="tabpanel"
+                            aria-labelledby="sapporo-tab">
+                            <div class="post">
+                                <br>
+                                <h2 class="post-title">關於行李</h2>
+                                <br>
+                                <p class="post-content">
+                                    大家出遊是怎麼收拾行李的呢？年輕一個人旅行的時候我是上身(衣服)和下身(褲子、裙子)分開收，就是按照"種類"分門別類的打包，每天上、下身任意搭配，
+                                    就不會有穿同一套衣服的感覺。印象第一次帶央央出國去沖繩時，打包的方式也是差不多，小孩的分小孩的，大人的分大人的，就是以"人"來分類。再後來有允寶之後，
+                                    我就換成以"天"來打包行李(主要是衣物)了。這種打包方式非常方便，一天所有人的衣服放同一袋，到旅館之後只要拿出這一袋明天要穿的衣服就好，其他的不會動到。
+                                    但這就要在出門前就要先想好哪一天要穿什麼衣服，以及如果遇到天氣變化的話要如何快速應對，在最低限度的打亂行李下調整合適的穿著。
+                                </p>
+                                <p class="post-content">
+                                    打包行李也是非常耗腦力的事，要在腦中先想好要帶多少衣服，每天如何分配，而且現在我一人要準備三人份。我們出遊行李都很簡單，能精簡盡量精簡，
+                                    這次只帶兩個大約25吋的行李箱和一個登機箱(去年在札幌Loft買的)，掛行李秤重時好像是18?、?、6kg，這次想說不用帶太多衣服，剛好去日本補貨，
+                                    所以出發時行李箱其實很空。(後來回來時，最重的那個也是18kg (我的印象是對的嗎?) 明明就放了很重sabon)
+                                </p>
+                                <p class="post-content">
+                                    我覺得我真的超級機智，我們第一天住朋友家，第二天根據去年經驗，白天出門逛到下午2、3點就會累了，但朋友住的地方不在市區，要搭幾站電車，
+                                    回去一趟，晚上再來市區的話，覺得有點懶惰(回家就不想出門的感覺)，所以我第二天訂了札幌車站附近的飯店(去年住的同一家)，
+                                    這樣逛街逛累就可以直接去飯店check-in休息，等晚餐再會合一起吃飯。但如此一來，第二天要拖著行李箱逛街也太麻煩。
+                                    我本來就預計其中一個25吋行李箱會先留在朋友家，等19號回到札幌(那天也會住他家)再拿，如此剩下一個25吋和一個登機箱，
+                                    出發前靈機一動的詢問飯店是不是可以在入住前一天先去寄放行李，得到肯定的答案後，
+                                    我打包時就把第一天和行程後半要換洗的衣物和每天的盥洗用品放到預計留在朋友家的行李中，
+                                    之後才會用到衣物的就放在另一個行李箱，一到札幌車站我就先去寄放行李，解決一個箱子。隔天出去逛街時也只帶小包包，
+                                    其他每天會用到的盥洗用品、他們二個的恐龍枕頭、雨傘等(對，第一天到札幌又遇到下雨，還好隔天就放晴了)就塞在登機箱裡，晚上一起吃飯時，
+                                    朋友再幫忙帶過來給我們！
+                                </p>
+                                <p class="post-content">
+                                    這次幾乎每天換飯店，但都只需要帶一個25吋行李箱跟登機箱進房間即可，最後到洞爺湖連續二天住可以洗衣服的villa時，
+                                    才把三個箱子都一起搬進房間，進行大整理！之後二天函館的換洗衣物，一天一袋都放登機箱，到飯店只需帶著登機箱即可！覺得自己實在超聰明。
+                                </p>
+                                <br>
+                                <div class="image-container">
+                                    <div class="image-item">
+                                        <img src="img_2024Hokkaido/others/行李箱1.jpg" alt="行李箱" class="responsive-image">
+                                    </div>
+                                    <div class="image-item">
+                                        <img src="img_2024Hokkaido/others/行李箱2.jpg" alt="行李箱2" class="responsive-image">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="departure" role="tabpanel" aria-labelledby="departure-tab">
+                            <div class="post">
+                                <br>
+                                <h2 class="post-title">Departure 行李箱</h2>
+                                <br>
+                                <div class="post-image">
+                                    <img src="img_2024Hokkaido/others/departure.jpg" alt="Departure 行李箱" class="responsive-image">
+                                </div>
+                                <br>
+                                <p class="post-content">
+                                    這次買了新行李箱！！大推<a href="https://www.departure-travel.com/TW/default.asp" target="_blank">Departure</a>這個牌子！！
+                                    超級好推！沒比較不知道，一比較嚇一跳！
+                                </p>
+                                <p class="post-content">
+                                    我的大行李箱是大約20年前買的！今年過年去日本的時候，上方把手感覺已經快不行了，有隨時會拉掉的感覺，而且輪子也沒那麼好推，常常會往前倒，
+                                    總之就是處於一個要繼續用也可以，但是會用得很不爽快的情況。因此，想說趁momo年中慶來看看新的行李箱，還有joeman也有在開團某牌，
+                                    感覺是從去年開始網紅行銷的行李箱。原本想說買個5000元左右的就好，因為我的小紅行李箱(上上圖右邊那個對開的) 當初是為了方便二天一夜回基隆用的，
+                                    所以隨便買了個2000元左右的，也是不錯用。但是只在網路上看，沒有看過實品，心裡還是怕怕的，所以遲遲沒有下手。一直到8/3跟雅玲去竹南體驗越式洗頭，
+                                    之後去附近的尚順逛街時發現了一個行李箱櫃位，就進去逛逛，這次想找上掀式行李箱，因為我的小紅是對開的，買的時候覺得對開東西分兩邊放，拿的時候蠻方便，
+                                    但是遇到旅館房間空間比較小的時候就有點煩，或是東西塞滿有重量，要闔上箱子時也有點費力；登機箱是買前開式，需要快速拿取的小東西放在前面的空間，
+                                    很方便，但是要拿放在箱子裡的東西時就有點麻煩，雖然可以站著開，但是實際使用上，如果要放東西的話，還是要讓它躺下來比較好使用，而且內層拉鍊有點做隱形式的，
+                                    不是很好拉。所以這次才會想還是買上掀式的好了。  
+                                </p>
+                                <p class="post-content">
+                                    看了幾款之後，店員推薦了這個Departure的行李箱，第一次聽到這個牌子，特點就輪子非常好推，看它輪子也比其他牌子的大一點，還有做好看的簍空花樣，
+                                    實際推過之後讓我大為驚訝，空箱推起來就覺得比其他的穩，搖晃感較低，相比都十分滑順，差別不是太大；但現場有兩個裝了重量的行李箱，
+                                    一個是它牌(我也沒注意是什麼牌，但是是現場有賣的其他牌子行李箱)，含箱內物品秤重為19公斤，Departure的行李箱為25公斤，
+                                    結果Departure的行李箱推起來的感覺是比較輕、比較好推的！ 我有直接拉上方把手提起兩個行李箱，直接提的時候Departure的行李箱是比較重的沒錯，
+                                    但是推起來就是比較輕！這次旅行也是一樣，我的小紅行李箱搬起來明顯比Departure行李箱輕，但是推起來的感覺就是比較重，Departure行李箱好推非常多！真是太神奇了！
+                                </p>
+                                <p class="post-content">
+                                    在尚順時我沒直接下手，而是回來後在momo上查了價錢，價錢差不多，有便宜個1000元左右，但是款式不是現場看到的，後來發現新竹市就有經銷商實體店面，
+                                    就在costco後面那邊，就趁假日去迪卡儂+吃壽司郎(明明馬上就要去日本了還吃壽司郎)的時候帶阿光過去看看，順便刷卡😁。
+                                </p>
+                                <p class="post-content">
+                                    除了輪子很讚之外，它上掀蓋子的左右都有綁帶，可以將蓋子固定在某個角度，不會整個往後翻，或是要找牆壁靠，網袋的部分分成三個，方便不同物品分開收納，
+                                    好找、好拿，海關鎖就不用說了，輪子的部分有後輪煞車鎖(我們的登機箱也有，便宜的小紅就沒有啦)，等車或是坐大眾運輸時可以把輪子鎖上，
+                                    避免滑動十分方便；行李箱五年保固。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="onsen" role="tabpanel" aria-labelledby="onsen-tab">
+                            <div class="post">
+                                <br>
+                                <h2 class="post-title">關於溫泉飯店</h2>
+                                <br>
+                                <p class="post-content">
+                                    我們這次旅行入住的第一家溫泉飯店 - <a href="2024Asahidake.html#hotel" target="_blank">旭岳 湯元湧駒莊</a>，離大雪山旭纜車站非常的近，是傳統的日式溫泉旅館，主樓的溫泉非常有年代感，地面不是平整的石板鋪設的，
+                                    而是形狀不規則的石頭，露天溫泉的部分也超"自然"，我覺得比較無法接受的是，泉水溫度沒有很高，泡起來不舒爽，但是央央很愛，他說因為石頭上有青苔滑滑的，
+                                    所以坐下去可以滑來滑去很好玩…….。室內池的部分是有4~5種不同的池子，但是有點昏暗，然後我沒戴眼鏡，所以什麼都看不清楚，空間不是太大，但是人也不多，
+                                    可以一人泡一池，還不錯。另外有一個別館的溫泉，就比較新一點，溫泉池比較方正，泉水溫度我也比較喜歡。餐點的部分也是日式的一人一份的那種算是會席料理嗎？
+                                    菜是一道一道上來的。晚餐如要其他飲料是要另外消費的，有幫允寶點了一杯柳橙汁，不然他一直抱怨。早餐的話，就有牛奶、果汁等幾款飲料可以自取，咖啡的話，
+                                    是在溫泉出入口旁邊有一個專門的房間可以自行取用。 這家是本次住宿中最貴的，大概是因為地理位置的關係。考量到CP值，除非想要一早上山(纜車早上6:00就開始運行)
+                                    不然我沒有很推薦，還是花點時間下山，住在旭川或是美瑛，一半的價格就可以有很不錯的住宿。 
+                                </p>
+                                <p class="post-content">
+                                    最喜歡的飯店是臨時改了一點行程加入的<a href="2024Shikotsuko.html#hotel" target="_blank">伊達之森親子飯店</a>！飯店設計很活潑、寬敞和明亮，每個地方都有考慮到小孩的貼心設計，包括餐廳有兒童遊戲區、
+                                    自助餐竟然有提供離乳食品。自助餐種類非常豐盛，也很美味。泳池的部分有室內25公尺三水道的標準池，和室外親子泳池，也有烤箱，面室外的那面是透明玻璃的，
+                                    家長坐在裡面可以稍微看到小孩，室外泳池的部分，較高處有一個熱池，也是很貼心的設計，讓爸媽可以泡在裡面看小孩在下面淺水區玩，或是玩好之後來泡一下熱水，
+                                    讓身體溫暖，再進去洗浴。溫泉和泳池連通，游完泳可以直接去溫泉浴場洗澡超方便。B1兒童遊戲室有允寶超愛的球池，戶外繩索體案也非常刺激、好玩，
+                                    我們最後在浴場入口一個休息空間的吊床上躺著耍廢，一直拖延出發到下一個景點的時間。
+                                </p>
+                                <p class="post-content">
+                                    我最喜歡的溫泉是<a href="2024Noboribetsu.html#hotel" target="_blank">登別的格蘭飯店</a>，有灰白色硫磺泉，溫泉溫度也很讚，雖然露天風呂沒有到真的很露天，溫泉浴場空間很寬敞，很舒適，但是男女湯其實空間規劃一模一樣，
+                                    所以早上和晚上泡差別不大，有冷池是允寶的最愛。餐點和餐廳的部分我覺得還好，比較老舊的感覺，雖然有生魚片區，但是普通。央央倒是很愛它的拉麵，吃了兩碗，
+                                    早餐有一個像我們古早味小甜點 - 炸雙胞胎，但比較細長一點，有表面有撒糖和沒灑糖的兩種，現炸的還蠻好吃。
+                                </p>
+                                <p class="post-content">
+                                    最喜歡的餐點是<a href="2024Hakodate.html#hotel" target="_blank">函館 湯の川温泉 海と灯</a>，晚餐有帝王蟹腳，但是吃螃蟹真的好麻煩呀！而且它是冷的，所以我就只吃了幾隻意思意思，生魚片的部分很不錯，還有燒烤料理(奶油扇貝和玉米都好吃)，
+                                    甜點的冰淇淋(有五種口味，師傅幫你挖) 也很讚，我吃了三球小倉紅豆，另外哈密瓜口味也很好吃，也有自己擠的牛奶冰淇淋，但實在吃太飽了就沒吃了，早餐的自製海鮮丼也很新鮮，
+                                    還有可以自己組合的漢堡，超讚，咖啡是提供函館的美鈴咖啡，好喝！
+                                    但是它的溫泉我覺得還好，空間不是很大，沒有冷池(允寶愛的)也沒有烤箱(央愛的)。房間應該是高級雙人房另外加了兩張床，變成四人房，不另外加床的話，其實空間蠻大的，
+                                    不過因為我們只住一天所以行李只帶了一個登機箱上來(另外兩個25吋行李箱放車上)，所以還OK，一人可以睡一張床很舒服（允寶睡姿非常可怕）。
+                                </p>
+                                <p class="post-content">
+                                    最後覺得最棒的溫泉是<a href="2024Toya.html#place2" target="_blank">洞爺湖太陽宮飯店</a>的溫泉！！難怪這邊飯店住宿費都很貴！ 我們在洞爺湖沒有住溫泉泉飯店，而是住另一邊在半山腰的公寓式villa，所以出發前我有查了一下日歸溫泉。
+                                    太陽宮飯店除了溫泉之外還有water land，是個室內的小型水樂園，有人工造浪池、漂漂河，各種滑水道，看起來超好玩，實際也非常好玩！一進飯店大門就有好聞的香味，
+                                    左轉通過二重門進入大廳之後迎面就是大片落地窗的湖景！在這邊下午茶的話真的很悠閒呢，飯店也有提供入住旅客在此享用的免費咖啡。
+                                    去完 water land之後大概14:00去洗澡泡溫泉，這時間當天旅客還沒check in，前一天住宿旅客已經退房或是去附近玩，所以人很少，使用起來非常舒適，
+                                    室內溫泉池有自動SPA，分躺著、站著或坐著使用，烤箱外面就是冷池，還有一小桌子放著冰涼的檸檬水超貼心，露天溫泉就像小的無邊際泳池面對洞爺湖壯觀的湖景，超級讚！
+                                    晚上在這邊泡湯看煙火應該很不錯(但是可能會很多人，而且無法拍照)，所以利用日歸溫泉來體驗一下感覺是非常划算的選擇。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="medicine" role="tabpanel" aria-labelledby="medicine-tab">
+                            <div class="post">
+                                <br>
+                                <h2 class="post-title">心酸的藥妝採購</h2>
+                                <br>
+                                <div class="post-image">
+                                    <img src="img_2024Hokkaido/others/藥妝.jpg" alt="藥妝" class="responsive-image">
+                                </div>
+                                <br>
+                                <p class="post-content">
+                                    這是我這次在藥妝店買的所有東西。在要去看洞爺湖煙火的前30分鐘，快速亂拿一通的，根本沒時間慢慢找預計要買的東西，大哭。😭
+                                    當時想說：先隨便買一點，之後有時間再慢慢逛，誰知道最後完全沒有時間再去藥妝店！當時有看到一個預計要買的美白牙膏，但是它還有別款，
+                                    沒時間仔細研究，想說之後去其它藥妝，時間比較充分時再來看，結果就….沒有之後了…..
+                                </p>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="thoughts" role="tabpanel" aria-labelledby="thoughts-tab">
+                            <div class="post">
+                                <br>
+                                <h2 class="post-title">碎碎念</h2>
+                                <br>
+                                <p class="post-content">
+                                    鼻子過敏在北海道不藥而癒。好像是第三天晚上我才想到 - 啊！都忘記吃過敏藥了！！但是仔細一想，也沒有任何流鼻水的症狀，那沒吃應該也沒關係，
+                                    就這樣13天都沒有吃藥，鼻子也完全沒問題！
+                                    回來之後，想說那也先不要吃藥看看，果然不行！中午之後就開始流鼻水了🥲。到晚上眼睛也癢了起來。
+                                </p>
+                                <br>
+                                <p class="post-content">
+                                    大概在旅行第七天左右，就是住完伊達親子飯店之後，央央就說他泡湯疲乏，不想再泡湯了！！這一天接下來要住的就是我很期待的登別溫泉。
+                                    但還好之後三天(兩天洞爺、一天函館) 都是住公寓式的房子，不會有溫泉大浴場。不過允寶還是很期待，因為我們買了泡澡球，
+                                    他很想要知道泡澡球裡會出現哪一款玩具。
+                                </p>
+                                <br>
+                                <p class="post-content">
+                                    這次訂的住宿，除了第二天<a href="2024Sapporo.html#hotel" target="_blank">札幌的商務飯店</a>和公寓式房子是不含餐之外，其他的溫泉酒店都是含晚餐和早餐的。
+                                    出發前很期待早餐吃海鮮丼，不管是飯店還是朝市的，尤其是函館最後一天的住宿 - 海之燈的自助晚餐和早餐，結果大概是登別之後，我已經不想再吃生魚片了，
+                                    還好一樣下來的三天都是不包餐的住宿，可以休息一下。
+                                </p>
+                                <br>
+                                <p class="post-content">
+                                    隔了13天回家之後，果然九層塔已經枯死了，葉子乾枯下垂，像那種曬乾、一捏就會碎成粉的樣子，但還沒到變成咖啡色，還是暗綠色的。
+                                    其他多肉植物倒是都還很OK，允寶的水黃皮新葉子邊緣有點鋸齒狀捲曲之外，整體看起來也還好，葉子還是綠色、打開的。
+                                    另一個意外是水晶寶寶，整個乾掉，變超級小，我跟阿光心裡都想說：太好了，終於可以把它們丟掉了！結果允寶馬上幫他們加水，泡水之後沒多久，
+                                    就慢慢恢復了……恢復了……恢復了…..。九層塔我已經放棄了，想說之後清掉，但央央要我也幫它澆水，我就順手也幫它澆了水，
+                                    其實心裡不抱任何希望，沒想到隔天起床，九層塔也復活了！葉子展開變綠色，超厲害的。(當時不抱任何希望，所以沒拍照留證實在太可惜了)
+                                </p>
+                                <br>
+                                <p class="post-content">
+                                    日本各式各樣的番茄都好好吃，一開始是在溫泉旅館吃到的一道番茄甜點(去皮大番茄跟白酒一起製作的一道冰涼的"餐中"甜點)，原本對這道料理不抱任何期待，
+                                    內心直覺大番茄不好吃啊~~結果一吃之後驚為天人，怎麼可以這麼好吃，而且超級清爽解膩的！之後在美瑛選果買了一盒綜合番茄，也是每個品種都很甜很好吃！
+                                    最後在洞爺湖水之駅休息站的商店買了四包不同的番茄(雖然它也是有賣一包混和的)，晚上到民宿之後自己全部混成一大盆綜合番茄來吃，
+                                    這次旅行感覺比之前多吃到了許多蔬菜水果，感覺很健康。
+                                </p>
+                                <br>
+                                <div class="post-image">
+                                    <img src="img_2024Hokkaido/818/818_48.jpg" alt="Photo 湧駒莊晚餐_番茄" class="responsive-image">
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="cost" role="tabpanel" aria-labelledby="cost-tab">
+                            <div class="post">
+                                <br>
+                                <h2 class="post-title">總費用</h2>
+                                <br>
+                                <p class="post-content">
+                                    交通部份：機票的部份我們是在2月多時就在星與官網上訂購，札幌進、函館出的費用是：18371元，訂票時為了使用 fly go卡的最高回饋1500元，我和阿光分別訂一大一小的機票，
+                                    星宇航空預選座位，小孩是免費的，成人單程印象是210元的樣子，沒有非常貴！新千歲機場到札幌車站，這次選擇直接搭JR，快速又方便，去年搭巴士，沒有買到直達車，
+                                    搭了超級久(一個多小時吧，下雨+塞車+一直停)，2大2小的JR車票費用是5740元。另一個大筆支出就是租車費用，這次一樣是跟誌麟姊姊租的，直接用line中文聯繫超方便，
+                                    更改租車日期也很方便，費用是取車時現場現金或是信用卡支付即可，配合的租車公司是：World Net Rent-a-Car(WNR)，我們租車日期是：8/16-8/26，含相同天數HEP(高速公路過路費)，
+                                    與異地還車(另加7700円)，總費用是：144290円。11天 總共加了三次油，費用是：13289円。其他就是一些停車費，需要停車費的光觀地區的停車場，大多是一次500円。
+                                </p>
+                                <p class="post-content">
+                                    吃的部分就是整個放開亂吃，最貴的一餐就是札幌外市場的帝王蟹啦！那餐花了34191円。其他費用較高的就是根室花丸、積丹純的店、美瑛的BTB漢堡、
+                                    函館朝市二番館(可惡！這個應該點500円丼就可以，這樣就只要2000円)這幾個大概是8000~10000円，再來就是一餐3000~5000元左右的：奧之商店湯咖哩、旭川吃的蕎麥麵、農咖屋、室蘭一輪草蕎麥麵、
+                                    洞爺湖Hydune漢堡、ラムヤート 烘焙坊。最後就是便利商店、超市、各地冰淇淋等小的花費！
+                                </p>
+                                <p class="post-content">
+                                    這次住宿也比去年花得多，多是溫泉飯店和公寓式的房型，最貴的就是大雪山的<a href="2024Asahidake.html#hotel" target="_blank">旭岳 湯元湧駒莊</a>，一晚70700円。
+                                    其他的平均一晚大約是4萬日幣 (四人房)。
+                                </p>
+                                <p class="post-content">
+                                    主要花費就是上述的，交通、餐點和住宿啦！伴手禮的部分，各人差異實在太大，就沒有甚麼參考價值。景點的部分我們沒有去什麼大筆花費的地方，唯一參加的活動就是小樽青洞窟，
+                                    三大一小(允寶免費)是14000円。啊~另一個比較貴的就是纜車的費用(皆為二大一小，允寶免費+停車費)：大雪山纜車 - 8500円、有珠山纜車 - 5000円、函館山纜車：6000円。
+                                    函館大沼公園租腳踏車加停車也花了5000円。
+                                </p>
+                                <br>
+                                <div class="image-container">
+                                    <div class="image-item">
+                                        <img src="img_2024Hokkaido/others/費用分析.jpg" alt="費用" class="responsive-image">
+                                    </div>
+                                    <div class="image-item">
+                                        <img src="img_2024Hokkaido/others/費用分析2.jpg" alt="費用2" class="responsive-image">
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+        <!-- 最下層：底部 footer -->
+        <footer>
+            <div class="container" style="max-width: 85%;">
+                <div class="row">
+                    <div class="col-12 my-auto copyright">
+                        <p> Copyright © 2024 Iffy's Life </p>
+                        <p> iffyslife@gmail.com </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>  
 </html>
