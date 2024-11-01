@@ -278,12 +278,15 @@ ul.info {
     .container-fluid-main{
         margin: 30px 10px !important;
     }
+    .index-map{
+        padding-right: 0px;
+    }
 }
 
 @media screen and (max-width: 430px) {
     .container-fluid-main{
         margin: 0px;
-        display: flex;
+        
         justify-content: center; /* 水平置中 */
     }
     .Rtopic{
