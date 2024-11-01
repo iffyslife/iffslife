@@ -1,7 +1,34 @@
+
+/* 設定父容器為 Flexbox，並讓內容上下排列 */
+.content {
+    display: flex;
+    flex-direction: column; /* 始終垂直排列 */
+}
+
 .container-fluid-main{
     margin: 150px;
     max-width:100%;
 }
+
+.notification-bar{
+    font-family: 'Architects Daughter';
+    font-size: 24px;
+    background-color: rgba(250, 227, 237, 0.8);
+    padding: 10px;
+    text-align: center;
+    width: 100%; /* 設定適當寬度，例如 80% */
+    margin: 0 auto; /* 水平置中 */
+    border-radius: 5px; /* 適當的圓角效果 */
+    
+}
+/* 手機裝置：在小螢幕上全寬顯示在上方 */
+@media (max-width: 992px) {
+    .notification-bar {
+        display:block;
+        width: 100%; /* 設置為 100% 寬度以適應手機螢幕 */
+    }
+}
+
 
 .justify-content-center{
     max-width:100%;
@@ -281,12 +308,16 @@ ul.info {
     .index-map{
         padding-right: 0px;
     }
+
+    .notification-bar{
+        font-family: 'Architects Daughter';
+        font-size: 18px;
+    }
 }
 
 @media screen and (max-width: 430px) {
     .container-fluid-main{
         margin: 0px;
-        
         justify-content: center; /* 水平置中 */
     }
     .Rtopic{
