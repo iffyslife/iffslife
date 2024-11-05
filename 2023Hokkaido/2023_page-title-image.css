@@ -1,0 +1,163 @@
+
+/* 为第二區塊底部添加下邊距遍免與第三區重疊 */
+.travel {
+    padding-top: 116px; /* 這裡的值應該與導覽列的高度相同 */
+}
+
+/* 保持圖片高度不變，寬度隨螢幕裁切 */
+.top-picture {
+    position: relative;
+    width: 90%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    height: 416px; /* 設置固定高度 */
+    overflow: hidden; /* 隱藏超出的圖片部分 */
+}
+
+.top-picture img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* 圖片左右裁切，確保高度不變 */
+}
+
+
+/* 半透明框設定 */
+.page-title-wrapper-over-image {
+    clip-path: polygon(85% 0, 100% 20%, 100% 100%, 0 100%, 0 0);  
+    position: absolute; /* 基于 .top-picture 容器绝对定位 */
+    top: 63%; /* 垂直居中 */
+    left: 15%; /* 距左边界 20% */
+    transform: translateY(-80%); /* 調整半透明方框上下位置 */
+    min-height: 30vh;
+    max-width: 400px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2%;
+    z-index: 2;
+    color: black; /* 设置文字颜色为黑色 */
+    background: rgba(238, 250, 241, 0.8); /* 背景颜色 */
+    border-bottom: 10px solid #0c6909; /* 底部边框 */
+}
+
+/* 為 "標題中文" 部分单單獨设置 Klee One 字體 */
+.chinese {
+    font-family: 'Klee One', sans-serif;
+}
+.page-title-wrapper-over-image h1.page-title {
+    font-family: 'Architects Daughter';
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 50px;
+    color: #242321;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.page-title-wrapper-over-image h1.page-title:after {
+    content: '';
+    display: block;
+    width: 100%;
+    border-bottom: 4px solid #0c6909;
+    margin-top: 10px;
+}
+
+.page-title-wrapper-over-image h3.sub-text {
+    font-family: 'Architects Daughter';
+    font-size: 22px;
+    color: #4D4D4D;
+    margin-top: 15px;
+    text-align: left;
+    width: 100%;
+}
+
+@media screen and (max-width: 1600px) {
+    .top-picture {
+        width: 100%;
+    }
+    .top-picture img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+    .page-title-wrapper-over-image {
+        position: absolute;
+        bottom: 0; /* 將下邊貼齊背景圖片底部 */
+        left: 50%;
+        transform: translateX(-50%); /* 水平居中 */
+        clip-path: none; 
+        width: 80%; /* 縮小寬度以適應橫式畫面 */
+        max-width: none;
+        min-height: auto;
+        padding: 10px;
+        border-bottom: none;
+    }
+}
+
+/* 媒體查詢：針對iPad Air直式調整 */
+@media screen and (max-width: 855px) {
+    .page-title-wrapper-over-image {
+        top: 50%; /* 調整位置以防重疊 */
+        left: 15%; /* 适度左移以避免与页面边缘过近 */
+        transform: translateY(-50%); /* 保证垂直居中 */
+        max-width: 80%; /* 根据屏幕大小调整宽度 */
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .page-title-wrapper-over-image {
+        left: 50%; /* 將左邊距設定為 50% */
+        transform: translate(-50%, -100%); /* 完全水平和垂直居中 */
+        text-align: center; /* 文字居中對齊 */
+    }
+
+    .page-title-wrapper-over-image h1.page-title {
+        font-size: 40px;
+    }
+    .page-title-wrapper-over-image h3.sub-text {
+        text-align: center;
+    }
+}
+
+/* 小螢幕調整：手機設備 */
+@media (max-width: 576px) {
+    .top-picture {
+        width: 100%; /* 保持圖片寬度100% */
+        height: 416px; /* 固定高度不變 */
+    }
+    .page-title-wrapper-over-image {
+        position: absolute;
+        bottom: 0; /* 將底部貼齊圖片底部 */
+        left: 50%; 
+        transform: translateX(-50%); /* 水平居中 */
+        clip-path: none; 
+        width: 90%;
+        max-width: none;
+        min-height: auto;
+        padding: 10px;
+        border-bottom: none;
+    }
+    
+}
+
+/* 前一版 
+.page-title-wrapper-over-image {
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    clip-path: none; 
+    width: 90%;
+    max-width: none;
+    min-height: auto;
+    padding: 10px;
+    border-bottom: none;
+}
+    */
